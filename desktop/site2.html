@@ -1,0 +1,34 @@
+
+    <div class="home">
+        <form method="get" action="https://duckduckgo.com?q=" target="searchiframe">
+            <input type="search" name="q" placeholder="rechercher sur DuckDuckGo" />
+            <input type="submit" value="ok" />
+        </form>
+        <h3>Sites récemment consultés</h3>
+            <ul>
+                <li><a href="#" class="launch-enigma2"><span>Balade romantique</span></a></li>
+                <li><a href="#" class="launch-teller"><span>Teller - Yann Dorner</span></a></li>
+                <li><a href="#" class="launch-bressier"><span>plumebressier - Affai...</span></a></li>
+            </ul>  
+    </div><!-- end home -->
+    <iframe name="searchiframe" id="searchresult" style="display:none;"></iframe><!-- end search result -->
+    <iframe name="telleriframe" id="telleriframe" style="display:none;"></iframe><!-- end teller iframe -->
+    <iframe name="bressieriframe" id="bressieriframe" style="display:none;"></iframe><!-- end bressier iframe -->
+               
+    <div class="second-enigma enigma">
+        <h1>Balade romantique</h1>
+        
+        <section class="left-side">
+            <img src="../assets/img/meta/enigme2-arbre.jpg" alt="arbre" />
+        </section>
+        <section class="right-side">
+            <p class="enigma-text">
+                Te souvi<span style="color:red;">e</span>ns-tu <span style="color:red;">c</span>ette fois? Un endroit <span style="color:red;">a</span>u Nord de l'Eau... C'est sur ce s<span style="color:red;">p</span>ectateur séculair<span style="color:red;">e</span> que tu as gravé ton de<span style="color:red;">s</span>tin. Alors, <span style="color:red;">p</span>our trouver, regarde aux <span style="color:red;">a</span>lentou<span style="color:red;">r</span>s et cherche bie<span style="color:red;">n</span>.
+            </p>
+            <a class="hidden-link" data-window="mariage"></a>
+            <a class="hidden-link" data-window="ticket"></a>
+            <a class="hidden-link" data-window="faitdivers"></a>
+            <label for="answer-egnima">Qu'as-tu trouvé aux alentours ? </label><input type="text" id="answer-enigma" name="answer-enigma"/>
+        <input type="submit" value="ok" id="submit-button"/>
+        </section>
+    </div><!-- end second-enigma -->

@@ -1,0 +1,262 @@
+/* ================================================== */
+/* Animation on Colon (#welcome)                      */
+/* ================================================== */
+
+
+@-webkit-keyframes colonCount {
+    from { opacity: 0;}
+    to { opacity: 1;}
+}
+@-moz-keyframes colonCount {
+    from { opacity: 0;}
+    to { opacity: 1;}
+}
+@-ms-keyframes colonCount {
+    from { opacity: 0;}
+    to { opacity: 1;}
+}
+@-o-keyframes colonCount {
+    from { opacity: 0;}
+    to { opacity: 1;}
+}
+@keyframes colonCount {
+    from { opacity: 0;}
+    to { opacity: 1;}
+}
+
+/* ================================================== */
+/* lOADER LOGO SCALE                                  */
+/* ================================================== */
+
+@-webkit-keyframes iniAppear {
+    0% { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes iniAppear {
+    0% { opacity:0; }
+  100% { opacity:1; }
+}
+@-ms-keyframes iniAppear {
+    0% { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes iniAppear {
+    0% { opacity:0; }
+  100% { opacity:1; }
+}
+@keyframes iniAppear {
+    0% { opacity:0; }
+  100% { opacity:1; }
+}
+
+@-webkit-keyframes bootLogoScale {
+    from { transform: scale(0)}
+    to { transform: scale(1)}
+}
+@-moz-keyframes bootLogoScale {
+    from { transform: scale(0)}
+    to { transform: scale(1)}
+}
+@-ms-keyframes bootLogoScale {
+    from { transform: scale(0)}
+    to { transform: scale(1)}
+}
+@-o-keyframes bootLogoScale {
+    from { transform: scale(0)}
+    to { transform: scale(1)}
+}
+@keyframes bootLogoScale {
+    from { transform: scale(0)}
+    to { transform: scale(1)}
+}
+
+/* ================================================== */
+/* FADE IN FOOTER                                     */
+/* ================================================== */
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0;}
+    to { opacity: 1;}
+}
+@-moz-keyframes fadeIn {
+    from { opacity: 0;}
+    to { opacity: 1;}
+}
+@-ms-keyframes fadeIn {
+    from { opacity: 0;}
+    to { opacity: 1;}
+}
+@-o-keyframes fadeIn {
+    from { opacity: 0;}
+    to { opacity: 1;}
+}
+@keyframes fadeIn {
+    from { opacity: 0;}
+    to { opacity: 1;}
+}
+
+/* ================================================== */
+/* DOT APPEAR                                         */
+/* ================================================== */
+
+@-webkit-keyframes dotAppear {
+    0% { opacity:0; }
+   49% { opacity:0; }
+   50% { opacity:1; }
+  100% { opacity:1; }
+}
+@-moz-keyframes dotAppear {
+    0% { opacity:0; }
+   49% { opacity:0; }
+   50% { opacity:1; }
+  100% { opacity:1; }
+}
+@-ms-keyframes dotAppear {
+    0% { opacity:0; }
+   49% { opacity:0; }
+   50% { opacity:1; }
+  100% { opacity:1; }
+}
+@-o-keyframes dotAppear {
+    0% { opacity:0; }
+   49% { opacity:0; }
+   50% { opacity:1; }
+  100% { opacity:1; }
+}
+@keyframes dotAppear {
+    0% { opacity:0; }
+   49% { opacity:0; }
+   50% { opacity:1; }
+  100% { opacity:1; }
+}
+
+/* ================================================== */
+/* BLINKING CURSOR ANSWER MAILS                       */
+/* ================================================== */
+
+
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-ms-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-o-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+/* ================================================== */
+/*    DOCK SLIDE                                      */
+/* ================================================== */
+
+@-webkit-keyframes dockSlide{
+    from { bottom: -90px; }
+    to { bottom: 0; }
+}
+@-moz-keyframes dockSlide{
+    from { bottom: -90px; }
+    to { bottom: 0; }
+}
+@-ms-keyframes dockSlide{
+    from { bottom: -90px; }
+    to { bottom: 0; }
+}
+@-o-keyframes dockSlide{
+    from { bottom: -90px; }
+    to { bottom: 0; }
+}
+@keyframes dockSlide{
+    from { bottom: -90px;}
+    to { bottom: 0;}
+}
+
+
+/* ================================================== */
+/*    SHAKE WINDOW ARCHIVE                            */
+/* ================================================== */
+
+@-webkit-keyframes shake {
+  0% {transform: translateX(-10px);}
+  10% {transform: translateX(-10px);}
+  20% {transform: translateX(10px);}
+  30% {transform: translateX(-10px);}
+  40% {transform: translateX(10px);}
+  50% {transform: translateX(-10px);}
+  60% {transform: translateX(10px);}
+  70% {transform: translateX(-10px);}
+  80% {transform: translateX(10px);}
+  90% {transform: translateX(-10px);}
+  100% {transform: translateX(0);}
+}
+
+@-moz-keyframes shake {
+  0% {transform: translateX(-10px);}
+  10% {transform: translateX(-10px);}
+  20% {transform: translateX(10px);}
+  30% {transform: translateX(-10px);}
+  40% {transform: translateX(10px);}
+  50% {transform: translateX(-10px);}
+  60% {transform: translateX(10px);}
+  70% {transform: translateX(-10px);}
+  80% {transform: translateX(10px);}
+  90% {transform: translateX(-10px);}
+  100% {transform: translateX(0);}
+}
+
+@-ms-keyframes shake {
+  0% {transform: translateX(-10px);}
+  10% {transform: translateX(-10px);}
+  20% {transform: translateX(10px);}
+  30% {transform: translateX(-10px);}
+  40% {transform: translateX(10px);}
+  50% {transform: translateX(-10px);}
+  60% {transform: translateX(10px);}
+  70% {transform: translateX(-10px);}
+  80% {transform: translateX(10px);}
+  90% {transform: translateX(-10px);}
+  100% {transform: translateX(0);}
+}
+
+@-o-keyframes shake {
+  0% {transform: translateX(-10px);}
+  10% {transform: translateX(-10px);}
+  20% {transform: translateX(10px);}
+  30% {transform: translateX(-10px);}
+  40% {transform: translateX(10px);}
+  50% {transform: translateX(-10px);}
+  60% {transform: translateX(10px);}
+  70% {transform: translateX(-10px);}
+  80% {transform: translateX(10px);}
+  90% {transform: translateX(-10px);}
+  100% {transform: translateX(0);}
+}
+
+@keyframes shake {
+  0% {transform: translateX(-10px);}
+  10% {transform: translateX(-10px);}
+  20% {transform: translateX(10px);}
+  30% {transform: translateX(-10px);}
+  40% {transform: translateX(10px);}
+  50% {transform: translateX(-10px);}
+  60% {transform: translateX(10px);}
+  70% {transform: translateX(-10px);}
+  80% {transform: translateX(10px);}
+  90% {transform: translateX(-10px);}
+  100% {transform: translateX(0);}
+}

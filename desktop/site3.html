@@ -1,0 +1,33 @@
+
+    <div class="home">
+        <form method="get" action="https://duckduckgo.com?q=" target="searchiframe">
+            <input type="search" name="q" placeholder="rechercher sur DuckDuckGo" />
+            <input type="submit" value="ok" />
+        </form>
+        <h3>Sites récemment consultés</h3>
+            <ul>
+                <li><a href="#" class="launch-enigma3"><span>L'inspiration</span></a></li>
+                <li><a href="#" class="launch-teller"><span>Teller - Yann Dorner</span></a></li>
+                <li><a href="#" class="launch-bressier"><span>plumebressier - Affai...</span></a></li>
+            </ul>  
+    </div><!-- end home -->
+    <iframe name="searchiframe" id="searchresult" style="display:none;"></iframe><!-- end search result -->
+    <iframe name="telleriframe" id="telleriframe" style="display:none;"></iframe><!-- end teller iframe -->
+    <iframe name="bressieriframe" id="bressieriframe" style="display:none;"></iframe><!-- end teller iframe -->
+               
+    <div class="third-enigma enigma">
+        <h1>L'inspiration</h1>
+        
+        <section class="left-side">
+            <img src="../assets/img/meta/site3-k.jpg" alt="K" />
+        </section>
+        <section class="right-side">
+            <p class="enigma-text">
+                L' auteur du Quatu<span style="color:red;">o</span>r de la cité des Anges <span style="color:red;">t</span>'a inspiré et tu en as fais ta Muse. Pourtant, ce déclic a foutu ta vie en l'air et celle de ta fille ne tient qu'à un fil. On  <span style="color:red;">s</span>e retrouve à la Halle, là où, lors que  sortent les Cloches, l'o<span style="color:red;">n</span> fête ton  Métier.
+            </p>
+            <a class="hidden-link" data-window="interview"></a>
+            <a class="hidden-link" data-window="sms"></a>
+            <label for="answer-egnima">Qu'as-tu trouvé à la Halle ? </label><input type="text" id="answer-enigma" name="answer-enigma"/>
+        <input type="submit" value="ok" id="submit-button"/>
+        </section>
+    </div><!-- end third-enigma -->

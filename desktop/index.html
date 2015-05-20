@@ -1,0 +1,2759 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ordinateur | Projection, enqu&ecirc;te int&eacute;ractive</title>
+    <link rel="shortcut icon" href="../assets/img/website/favicon.ico">
+    <link rel="shortcut icon" href="../assets/img/website/favicon.png">
+     <link rel="stylesheet" href="../assets/css/ui-main-theme.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
+</head>
+<body>
+ <noscript>
+    <div class="error-msg">
+       <img src="../assets/img/desktop/crash.svg" width="200" height="132" alt="Linos a planté" />
+        <h1>Aïe ! Linos OS a planté !</h1>
+        <span class="error">Code d'erreur -261</span>
+        <p>Vérifiez d'avoir à votre disposition la dernière version de Javascript et un navigateur moderne pour profiter pleinement de l'expérience.</p>
+    </div>
+	
+ 
+	<style>
+        body {
+            background-color: #233040;
+            color: #fff;
+            text-align: center;
+            font-family: "Lucida Console", serif; font-size: 11px; font-size: 1.1rem;
+        }
+        .error-msg {
+            position: absolute;
+            width: 690px;
+            height: 300px;
+            left: 0; top: 0; bottom: 0; right: 0;
+            margin: auto;
+        }
+        .error { font-weight: bold; }
+        h1 { font-weight: bold; margin: 20px 0;  }
+        p { margin-top: 10px; font-size: 10px; font-size: 1rem; }
+        .loader, .desktop, .tuto, .tuto2, #notif, .menu { display: none;}
+	</style>
+</noscript>
+ <!-- initialization window -->
+    <div class="loader">
+       <section class="booting">
+           <h1 class="bootLogo">Minerva 10.0</h1>
+           <h2>Initialization <span>.</span><span>.</span><span>.</span></h2>
+        </section>
+        <footer>
+            <p>1984 - 2015. Linos Operating System is a proprety of Linos&trade; Company &amp; associates.</p><p> Linos Mobile System is still under development.</p>  
+        </footer>
+   </div>
+   <!-- end Initialization window -->
+  
+  <!-- notification diary -->
+  <div id="notif">
+    <div class="cont">
+        <h1>Nouvelle entrée dans le journal</h1>
+        <p>Vous venez de débloquer une nouvelle entrée dans le journal de Yann.</p>
+        <a href="#" class="d-link" target="_blank">Consulter</a>
+        <a href="#">Fermer</a>
+    </div>
+  </div>
+  <!-- end notification -->
+  
+  <div class="menu">
+     <div class="container">
+        <h1 class="logo"><a href="#" data-window="about">Linos logo</a> Linos 10</h1>
+        
+        <nav>
+            <ul>
+                <li><a href="../diary/index.html" target="_blank">Journal</a></li>
+                <li><a href="../index.html">Déconnexion</a></li>
+            </ul>
+        </nav>
+
+     </div>
+  </div>
+  
+  <!-- Tuto -->
+   <div class="tuto">
+       
+       <div id="first-window" class="tuto-window">
+           <h1>Bienvenue dans le système Linos OS !</h1>
+           <p>C'est votre première utilisation ? <br />Laissez-moi vous guider pas à pas...</p>
+           <a href="#" class="next">Très bien</a>
+           <a href="#" class="close-tuto">Non merci</a>
+       </div>
+       
+       <div id="second-window" class="tuto-window">
+           <p>Linos OS est un faux-système d'exploitation, utilisable comme n'importe quel ordinateur. </p>
+           <p>Vous pouvez ainsi ouvrir des dossiers, fichiers, programmes ou encore consulter des mails servant l'histoire mais aussi pour vous aider à résoudre les énigmes.</p>
+           <p>A l'arrière, vous pouvez justement observer le premier site du kidnappeur de Clara et l'énigme à résoudre. </p>
+           <a href="#" class="next">Continuer</a>
+           <a href="#" class="close-tuto">fermer</a>
+       </div>
+       
+       <div id="last-window" class="tuto-window">
+          <h1>Avant de vous lâcher...</h1>
+           <p>Un menu vient d'apparaître en haut. </p>
+           <p>Il va vous permettre d'accéder au journal de Yann, où ce dernier expliquera au fur et à mesure que vous résolvez des énigmes, son ressenti par rapport aux évènements.</p>
+           <p>C'est aussi dans ce journal, si jamais vous êtes coincé sur une énigme, que vous pourrez recevoir un peu d'aide de Yann.</p>
+           <a href="#" class="close-tuto">fermer</a>
+       </div>
+       
+   </div>
+   <!-- end Tuto -->
+   
+   <!-- Tuto2 -->
+   <div class="tuto2">
+       
+       <div id="window-tuto2" class="tuto-window">
+           <h1>Bravo, une première énigme de résolue!</h1>
+           <p>Désormais, vous serez amené à sortir afin de récupérer des numéros dans des lieux réels. </p>
+           <p>Néanmoins, pas de panique ! Votre progression est sauvegardée du moment que vous ne supprimez pas l'historique de votre navigateur.</p>
+           <p>N'oubliez pas de consulter le journal de Yann après avoir résolu une énigme.</p>
+           <a href="#" class="close-tuto">Fermer</a>
+       </div>
+    </div>
+   <!-- end tuto2 -->
+   
+   
+   <!-- Desktop -->
+   <div class="desktop">
+      
+      <!-- Dock -->
+      <div class="dock">
+          <ul>
+              <li class="dock-item-mail"><a href="#" data-window="mail"><span>Mails</span></a><span class="new-mail">3</span></li>
+              <li class="dock-item-explorer"><a href="#" data-window="explorer"><span>Explorer</span></a></li>
+              <li class="dock-item-internet dock-item--open"><a href="#" data-window="internet"><span>Internet</span></a></li>
+          </ul>
+          
+      </div>
+      <!-- end Dock -->
+      
+      <!-- welcome -->
+      <section id="welcome">
+       
+           <h1>Bonjour Yann !</h1>
+           <h2 class="date"><span class="day"></span><span class="year"></span></h2>
+           <h2 class="hour"></h2>
+       
+       </section>
+       
+
+       
+       <!-- dossiers -->
+       <a href="#" class="folder perso" data-window="perso"><span>Perso</span></a>
+       <a href="#" class="enquete" data-window="enquete"><span>Enquête</span></a>
+       <a href="#" class="folder travail" data-window="travail"><span>Travail</span></a>
+       <!-- end dossiers -->
+       
+       <!-- Window à propos -->
+       <div id="about" class="window window-closed" data-window="about">
+           <div class="toolbar">
+               <h3>A propos</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/desktop/linos-big-logo.svg" alt="Linos 10" />
+                  <h1>Ordinateur de Yann</h1>
+                  <h2>Linos version 10.0 Familiale</h2>
+                  <h3>Dernière mise à jour : 17 mai 2015 (Rev 36-rc-a)</h3>
+                </div>
+           </div>
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window a propos -->
+       
+              
+       <!-- Window chapitre 6 -->
+       <div class="window window-closed window-doc" data-window="chapitre-6">
+           <div class="toolbar">
+               <h3>Ch6_essais.doc</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="tools">
+              <div class="container-tools">
+                   <button type="button" data-func="bold"><span>B</span></button>
+                   <button type="button" data-func="italic"><span>I</span></button>
+                   <button type="button" data-func="underline"><span>S</span></button>
+                   <button type="button" data-func="justifyleft"><span>left</span></button>
+                   <button type="button" data-func="justifycenter"><span>center</span></button>
+                   <button type="button" data-func="justifyright"><span>right</span></button>
+                   <div class="changeFont">
+                      <select data-func="fontname">
+                        <optgroup label="Serif">
+                          <option value="Georgia">Georgia</option>
+                          <option value="merriweather_regular">Merriweather</option>
+                           <option value="Palatino Linotype">Palatino Linotype</option>
+                          <option value="Times New Roman">Times New Roman</option>
+                        </optgroup>
+                        <optgroup label="Sans-Serif">
+                         <option value="Lato" selected>Lato (Default)</option>
+                          <option value="Arial">Arial</option>
+                          <option value="Arial Black">Arial Black</option>
+                          <option value="Comic Sans MS">Comic Sans MS</option>
+                          <option value="Impact">Impact</option>
+                          <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                          <option value="Tahoma">Tahoma</option>
+                          <option value="Trebuchet MS">Trebuchet MS</option>
+                          <option value="Verdana">Verdana</option>
+                        </optgroup>
+                        <optgroup label="Monospace">
+                          <option value="Courier New">Courier New</option>
+                          <option value="Lucida Console">Lucida Console</option>
+                        </optgroup>
+                      </select>
+                  </div><!-- end changeFont -->
+                </div><!-- end container tools -->
+              </div><!-- end tools -->
+           <div class="windowbody">
+               <div class="window-container">
+                
+                 <div class="text-editor" contenteditable="true">
+                     <h1>Chapitre 6</h1>
+                     
+                     <i>Gautier enlevé, gazé, se réveille sonné.</i>
+                     <p>Ce bruit sourd et répétitif,  qui semblait tout droit sortir de sa tête, réussi à l’émerger de sa léthargie.<br />
+Et ça cognait : bong ! bong ! bong ! A un rythme lent et répétitif, insoutenable : les battements de son cœur. Toujours sous l’effet du gaz, Gautier ouvrit les yeux et eut bien du mal à reconnaître l’endroit, plongé dans l’obscurité. La pièce sombre ne contenait aucune source de lumière. C’est alors qu’une odeur âcre de fumée envahit l’atmosphère. Il toussa et tendit l’oreille, subitement conscient qu’un brouillard épais avait pris possession des lieux, en même temps qu’un léger bruit… Celui du gaz sous pression qui s’évacue d’un fin tuyau. Pris de panique, il ne put s’empêcher d’imaginer le pire et d’instinct, conscient que l’on était entrain de l’asphyxier, il essaya de se lever…  Sans succès. Ses jambes ne lui obéissaient plus, refusaient tout mouvement. De plus en plus effrayé alors qu’il réalisait qu’aucune sensation n’animait ses membres, il perçut, du bout des doigts, deux étaux métalliques lui inciser les mollets, eux-mêmes reliés à une chaine. La réalité le heurta de plein fouet, il était comme un animal, enchaîné à un solide crochet fixé au sol.
+   
+</p>
+                
+                <p>Piégé, pensa-t-il, la bile envahissant sa bouche, je suis piégé. Alors tout lui revint en mémoire… L’appartement et ce satané colis, alors qu’il était pourtant sur ses gardes. Il l’avait ouvert  car désirant plus que tout, connaître le fin mot de l’histoire, il voulait savoir pourquoi son amie avait été lâchement assassinée ! Cette soif de justice l’avait conduit directement jusqu’à cette pièce et sans aucun doute, à la personne qu’il traquait. 
+La police ne le retrouverait jamais car,  contrairement aux autres victimes, Gautier était un indésirable, une vulgaire mouche qui gênait et qu'il fallait chasser. On allait donc cacher son cadavre. Il ne s'en sortirait pas. 
+</p>
+                
+                <p>Cette réflexion fît naître en lui un sentiment de panique mêlé à une résignation face à la situation. Que pouvait-il faire à part espérer que tout ceci ne soit qu'un mauvais rêve ? Il toussa, la fumée lui brûlait les yeux et il devenait difficile de respirer. 
+Dans l’incapacité totale de savoir depuis combien de temps il était là, son cœur martelant toujours dans sa poitrine, il sentit l’abandon l’envahir tout entier alors, dans un ultime effort de survie, il hurla !</p>
+                 </div>
+                 
+               </div>
+           </div>
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window a chapitre 6 -->
+       
+       <!-- Window personnages -->
+       <div class="window window-closed window-doc" data-window="personnages">
+           <div class="toolbar">
+               <h3>personnages.doc</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="tools">
+              <div class="container-tools">
+                   <button type="button" data-func="bold"><span>B</span></button>
+                   <button type="button" data-func="italic"><span>I</span></button>
+                   <button type="button" data-func="underline"><span>S</span></button>
+                   <button type="button" data-func="justifyleft"><span>left</span></button>
+                   <button type="button" data-func="justifycenter"><span>center</span></button>
+                   <button type="button" data-func="justifyright"><span>right</span></button>
+                   <div class="changeFont">
+                      <select data-func="fontname">
+                        <optgroup label="Serif">
+                          <option value="Georgia">Georgia</option>
+                          <option value="merriweather_regular">Merriweather</option>
+                           <option value="Palatino Linotype">Palatino Linotype</option>
+                          <option value="Times New Roman">Times New Roman</option>
+                        </optgroup>
+                        <optgroup label="Sans-Serif">
+                         <option value="Lato" selected>Lato (Default)</option>
+                          <option value="Arial">Arial</option>
+                          <option value="Arial Black">Arial Black</option>
+                          <option value="Comic Sans MS">Comic Sans MS</option>
+                          <option value="Impact">Impact</option>
+                          <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                          <option value="Tahoma">Tahoma</option>
+                          <option value="Trebuchet MS">Trebuchet MS</option>
+                          <option value="Verdana">Verdana</option>
+                        </optgroup>
+                        <optgroup label="Monospace">
+                          <option value="Courier New">Courier New</option>
+                          <option value="Lucida Console">Lucida Console</option>
+                        </optgroup>
+                      </select>
+                  </div><!-- end changeFont -->
+                </div><!-- end container tools -->
+              </div><!-- end tools -->
+           <div class="windowbody">
+               <div class="window-container">
+                
+                 <div class="text-editor" contenteditable="true">
+                     
+                     <h1>Liste personnages (révision 3)</h1>
+                     
+                     <p><b>Gautier Morrin</b><br />
+                     31 ans, vit à Toulon depuis sa naissance, travaille dans l'immobilier. Personne sans histoire dont sa vie va changer lorsque sa meilleure amie Sandra est retrouvée morte un matin d'août dans une clairière. Interrogé par la police, il va se rendre compte que ceux qui sont chargés de l'affaire ont l'air de cacher quelque chose aux médias. Il va découvrir petit à petit et avec l'aide d'une préposée aux archives de la police de Toulon que le meurtrier n'est autre qu'un tueur en série qui a déjà tué 12 personnes et reste à l'heure actuelle encore introuvable. Il va se mettre alors à enquêter afin d'avoir le fin mot de l'histoire.</p>
+                     
+                     <p><b>Ludivine Garcia</b><br />
+                     27 ans. vit à Toulon depuis qu'elle travaille en tant qu'archiviste à la police de la ville. Elle a suivie depuis le début les meurtres de celui qu'on appelle "Le faucheur d'aube", mystérieux tueur en série qui s'en prend à des victimes sans histoire, généralement en fin de soirée. Lorsqu'elle a remarquée que les inspecteurs chargés de l'affaire ont essayé de dissimuler les différents meurtres aux médias afin d'éviter la panique elle a essayée de récolter le plus d'informations possible. Lorsque Gautier s'est rendu aux affaires afin de glaner quelques infos ils ont rapidement sympathisé.</p>
+                     
+                     <p><b>Inspecteur Martin Fréguaux</b><br />
+                     35 ans dont 15 ans de carrière à la police. Il est chargé de l'affaire du Faucheur d'Aube. Après le 3ème meurtre, il a reçu des ordres d'en haut afin de dissimuler à la presse que l'on avait affaire à un tueur en série et  éviter une panique. Il s'est donc débrouiller pour faire passer quelques meurtres pour des attaques d'animaux sauvages. Néanmoins, ce mensonge l'accable et il est partagé entre tout dévoiler et s'en tenir aux ordres.</p>
+                     
+                     <p><b>Mélanie Augier</b><br />
+                     30 ans. Amie de Gautier, 9ème victime du Faucheur d'Aube retrouvée morte un beau matin alors que sa voiture était restée chez elle. Aucuns appels passés, personne ne sait où elle se trouvait ni avec qui. Gautier apprend sa mort lorsqu'il se retrouve interrogé par la police qui pense à une attaque d'animaux sauvages.</p>
+                     
+                     <p><b>Faucheur d'Aube</b><br />
+                     27 ans. Se nomme Richard Langeois. Vit en Provence depuis son enfance où il a été recueilli par sa tante après la mort de ses parents dans un accident d'avion en Espagne. Sa tante n'étant pas un modèle de civisme il a eu énormément de mal à se construire et est atteins d'un dédoublement de la personnalité. Travail à la préfecture de Toulon et est connu, par ses proches, comme étant une personne calme et intentionnée. Son dédoublement le rend violent et même si il ne s'en rend pas totalement compte.</p>
+                     
+                 </div>
+                 
+               </div>
+           </div>
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window personnages -->
+       
+       <!-- Window prelude -->
+       <div class="window window-closed window-doc" data-window="prelude">
+           <div class="toolbar">
+               <h3>prélude-1.doc</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="tools">
+              <div class="container-tools">
+                   <button type="button" data-func="bold"><span>B</span></button>
+                   <button type="button" data-func="italic"><span>I</span></button>
+                   <button type="button" data-func="underline"><span>S</span></button>
+                   <button type="button" data-func="justifyleft"><span>left</span></button>
+                   <button type="button" data-func="justifycenter"><span>center</span></button>
+                   <button type="button" data-func="justifyright"><span>right</span></button>
+                   <div class="changeFont">
+                      <select data-func="fontname">
+                        <optgroup label="Serif">
+                          <option value="Georgia">Georgia</option>
+                          <option value="merriweather_regular">Merriweather</option>
+                           <option value="Palatino Linotype">Palatino Linotype</option>
+                          <option value="Times New Roman">Times New Roman</option>
+                        </optgroup>
+                        <optgroup label="Sans-Serif">
+                         <option value="Lato" selected>Lato (Default)</option>
+                          <option value="Arial">Arial</option>
+                          <option value="Arial Black">Arial Black</option>
+                          <option value="Comic Sans MS">Comic Sans MS</option>
+                          <option value="Impact">Impact</option>
+                          <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                          <option value="Tahoma">Tahoma</option>
+                          <option value="Trebuchet MS">Trebuchet MS</option>
+                          <option value="Verdana">Verdana</option>
+                        </optgroup>
+                        <optgroup label="Monospace">
+                          <option value="Courier New">Courier New</option>
+                          <option value="Lucida Console">Lucida Console</option>
+                        </optgroup>
+                      </select>
+                  </div><!-- end changeFont -->
+                </div><!-- end container tools -->
+              </div><!-- end tools -->
+           <div class="windowbody">
+               <div class="window-container">
+                
+                 <div class="text-editor" contenteditable="true">
+                     
+                     <strong>Abysse :</strong><i>Nm.</i>Désigne un fond océanique de plus de 2000m de profondeur.
+                     <p>Il faisait beau ce matin là. Pour la première fois de l'été, Antoine avait baissé la capote souple de son Opel cascada, laissant la brise fraîche ébouriffer ses cheveux pendant qu'il filait à toute vitesse entre les montagnes de Provence. Rien ne pouvait briser ce moment, tout était parfait. Il dépassait largement  la limite de vitesse mais n'y prêtait pas d'attention car il était encore très tôt. En effet, le soleil pointait timidement le bout de son nez, perçant de lourds nuages, derniers témoins des averses de la nuit et dessinant des ombres aux formes improbables sur le travers des montagnes. Dans quelques minutes, il atteindrait le petit chemin qui mène au Vallon des Abéourouns où il abandonnerait sa voiture pour entamer une randonnée de quelques centaines de mètres afin d'atteindre son panorama favori. Un endroit tranquille entre les feuilles des Cyprès italien où il avait une vue plongeante sur le village de Guillaumes et les près verdoyants. Une région paradisiaque. Pour rien au monde il n'aurait souhaiter se retrouver ailleurs. 
+   
+</p>
+                
+                <p>Bien entendu il était seul, mais la vie de célibataire pouvait avoir de bons côtés. Du haut de ses 27 ans, Antoine espérait toujours trouver la personne avec qui partager sa vie, malheureusement, son travail laissait peu de places aux loisirs et ses petites escapades en Provence était son seul pêché mignon, celui dont il ne pouvait se passer. Il avait besoin de ces moments, ce genre d'instant où plus rien ne compte. Ces moments où son esprit se vidait des contraintes de la vie citadine pour se remplir d'images magnifiques, de chants d'oiseaux et où l'on se dit que la vie est belle et qu'au final, le travail importe peu. Perdu dans ses pensés, Antoine faillit raté sa sortie, il rétrograda rapidement pour prendre le tournant, dérapant sur un sol terreux balayant le paysage de petits cailloux. La voiture s'engagea dans le sentier à une vitesse plus réduite. Voyant enfin sa petite carrière à l'abri du soleil, il arrêta le véhicule sur le côté et stoppa le moteur avant de sortir de l'habitacle en enfilant sa veste et ses lunettes de soleils à 300€. 
+</p>
+                
+                <p>Il respira profondément une bouffée d'air pure avant de s'engager dans les hautes herbes à travers un minuscule chemin. En théorie, ce genre d'endroit n'était pas vraiment connu. Il était difficile de repérer le sentier de terre depuis la route. En été, quand les feuilles devenaient plus nombreuses, ce dernier était complètement masqué dans la végétation et quelqu'un qui ne connait pas la région ne pourrait se douter du superbe paysage que l'on pouvait observer derrière. C'est aussi pour cela qu'Antoine aimait cet endroit, il savait qu'il était l'un des seuls à savoir qu'un tel chemin était accessible. Rien ne figurait sur les cartes, c'était un guide local qui lui avait montré il y a des années auparavant car c'était à  cet endroit que ce dit-guide avait demander sa femme en mariage.</p>
+                
+                <p>Pourtant, ce matin là, Antoine remarqua plusieurs traces de pas sur la terre encore humide. En y prêtant attention, elles avaient l'air fraîches. Antoine pesta intérieurement. La dernière chose dont il avait envie était de rencontrer quelqu'un dans ce qui était pour lui sa tanière, son lieux de repos où il se vidait l'esprit. Il n'y avait aucune voiture dans les environs et le village se trouvait à plusieurs kilomètres. Antoine s'imaginait mal quelqu'un faire un si long trek à une heure aussi matinale. Il regarda sa montre qui indiquait 6h00. A ce moment, il hésita à rentrer dans son chalet.  Mais au fond de lui, c'était inimaginable et balaya rapidement cette possibilité. Il avait besoin de ce moment de tranquillité et ce n'était pas des touristes qui allait lui briser cet instant. Il continua donc son chemin en espérant que le ou les visiteurs avaient continuer leur route en amont et ne s'étaient pas arrêtés. 
+Il ne croisa personne durant son chemin, 10 bonnes minutes s'étaient écoulées et la pente à monter devenait de plus en plus raide. Le soleil avait percé les nuages, libérant sa chaleur et faisant suer Antoine. Il retira un bouton de sa chemise avant de décider de retirer sa veste afin de se rafraîchir un peu. C'était beaucoup d'efforts pour si peu, mais cela en valait la peine si on oubliait les moustiques. Bientôt, il serait au sommet et pourrait se délasser, voir même faire une petite sieste à l'ombre ou encore simplement profiter du moment. Il passa outre la sensation de vertiges qui s'installait progressivement et la lourdeur de ses jambes. La douleur n'était qu'une information.
+</p>
+                <p>Le sommet devint plus proche et les derniers mètres approchaient.  Enfin, il arriva au bout. La vue était dégagé et le spectacle impressionnant. Il avait beau avoir observé ce paysage des dizaines de fois, à chaque fois, il sentait comme un gosse, observant avec une joie masquée les maisons du village qui se perdaient à l'horizon, les routes qui se dessinaient à travers les arbres et les différents vallons qui faisait de cet endroit un endroit unique et splendide. Il ferma les yeux en instant, espérant que le temps s'arrête. C'était parfait.</p>
+                
+                <p>Antoine se retourna pour trouver un petit coin à l'ombre pour éviter de se transformer en lard. Il trouva un petit coin où les arbres étaient assez épais pour masquer le soleil et où l'air serais plus frais. Quelque chose capta son attention. à sa droite, à environ soixante mètres se trouvait une forme étrange. Quelque chose de blanc qui avait l'air d'avoir été déposé là. Il pensa d'abord à un contenant en plastique avant de se rendre compte que c'était un tissu. Il s'approcha, pensant alors trouver un vêtement usé, oublié peut être par un couple qui avait décidé de batifoler dans les buissons. C'était peu être les mêmes personnes que ceux qui avaient fait ces traces sur le chemin en bas. Arrivé dans les buissons, l'odeur qui s'en dégageait était telle qu'il ne pu réprimer un spasme horrible. Il déglutit avec difficulté en essayant de masquer l'odeur avec sa veste qu'il pressa contre son nez. Qu'est-ce qui pouvait sentir autant ? En passant son bras libre à travers le buisson pour bouger les feuilles et dégager la vue, il comprit. </p>
+                
+                <p>A cet instant, il ne pût réussir à empêcher son estomac de recracher son petit déjeuner. Il avait face à lui ce qui restait du torse d'un homme. Seul un ramassis infâme de boyaux et d'organes humides reposaient là où devait normalement se trouver les jambes. La tête était tournée dans un axe improbable, une bouche décomposée affichait un rictus sordide dont l'étrange était accentué par un regard absent dans des orbites vides. Ce torse n'avait rien d'humain tant il avait été découpé. Antoine crût qu'il allait chavirer et tomber dans les pommes. Il se rendit compte que ce n'était pas un animal qui avait pût faire un telle chose. Quand il prit pleinement conscience de ce que cela impliquait, ses jambes flanchèrent et il quitta le monde des conscients pendant un instant.</p>
+                 </div>
+                 
+               </div>
+           </div>
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window a prelude -->
+       
+       <!-- archive chapitres -->
+       <div class="window window-closed window-archive" data-window="archive-chapitres">
+           <div class="toolbar">
+               <h3>chapitres.ar</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                   <img src="../assets/img/desktop/dock-icon-archive.png" alt="archive icone" />
+                   <section>
+                       <h1>Indiquez le mot de passe pour accéder à l'archive :</h1>
+                       <input type="password" placeholder="********" />
+                       <input type="submit" value="ok" />
+                   </section>
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window archive chapitres -->
+       
+       <!-- Window Internet -->
+       <div class="window window-active" data-window="internet">
+           <div class="toolbar">
+               <h3>Prêt pour un voyage Yann ? - Navigateur internet</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+               
+               <div class="navigation-actions">
+                  
+                    <ul class="left">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Précédente</a></li>
+                        <li><a href="#">Suivante</a></li>
+                    </ul>
+                   
+                   <span class="addressbar">http://www.le-voyage-de-yann.ws/</span>
+                   
+                   <ul class="right">
+                       <li><a href="#">Rafraîchir</a></li>
+                       <li><a href="#">Favoris</a></li>
+                   </ul>
+                   
+               </div>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+               
+                   <div class="home">
+                        <form method="get" action="https://duckduckgo.com?q=" target="searchiframe">
+                            <input type="search" name="q" placeholder="rechercher sur DuckDuckGo" />
+                            <input id="searchsubmit" type="submit" value="ok" />
+                        </form> 
+                        <h3>Sites récemment consultés</h3>
+                        <ul>
+                            <li><a href="#" class="launch-enigma1"><span>Prêt pour un voyage Yann ?</span></a></li>
+                            <li><a href="#" class="launch-teller"><span>Teller - Yann Dorner</span></a></li>
+                            <li><a href="#" class="launch-bressier"><span>plumebressier - Affai...</span></a></li>
+                        </ul>  
+                   </div><!-- end home -->
+                   <iframe name="searchiframe" id="searchresult" style="display:none;"></iframe><!-- end search result -->
+                   <iframe name="telleriframe" id="telleriframe" style="display:none;"></iframe><!-- end teller iframe -->
+                   <iframe name="bressieriframe" id="bressieriframe" style="display:none;"></iframe><!-- end teller iframe -->
+                   <div class="first-enigma enigma">
+                       <h1>Prêt pour un voyage Yann ?</h1>
+                <p class="enigma-text">
+                    Naïvement, il s<span style="color:red;">e</span> sentait en sécurité mais dans l’obscurité de l’allée brumeu<span style="color:red;">s</span>e, une paire d’yeux se dégageait de l’épaisse fumée. E<span style="color:red;">l</span>le guettait le moment... L'instant opportun pour bondir et transformer une vie en véritable enfer.
+                </p>
+                <p class="indice">3 sauts au Nord te donneront la réponse</p>  
+                <a class="hidden-link" data-window="toy"></a>
+                    <label>Qu'as-tu trouvé en sautant ? </label><input type="text" id="answer-enigma" name="answer-enigma"/>
+                    <input type="submit" value="ok" id="submit-button"/>
+                   </div><!-- end first-enigma -->
+                
+               </div><!-- end wndow-container -->
+           </div>
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window Internet -->
+       
+       <div class="window window-closed toy fichier-scan" data-window="toy">
+           <div class="toolbar">
+               <h3>ne_montre_pas_ca_a_maman.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/hidden-link1.jpg" alt="hidden-link" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window toy -->
+       
+       <div class="window window-closed ticket fichier-scan" data-window="ticket">
+           <div class="toolbar">
+               <h3>pour_oublier.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/ticket.jpg" alt="hidden-link" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window ticket -->
+       
+       <div class="window window-closed faitdivers fichier-scan" data-window="faitdivers">
+           <div class="toolbar">
+               <h3>cause_a_effet.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/article-fait-divers.jpg" alt="hidden-link" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window faitdivers -->
+       
+       <div class="window window-closed mariage fichier-scan" data-window="mariage">
+           <div class="toolbar">
+               <h3>quand_tout_allait_bien.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/article-mariage.jpg" alt="hidden-link" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window mariage -->
+       
+       <div class="window window-closed interview fichier-scan" data-window="interview">
+           <div class="toolbar">
+               <h3>esprit_d_equipe.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/article-interview.jpg" alt="hidden-link" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window interview -->
+       
+       <div class="window window-closed sms fichier-scan" data-window="sms">
+           <div class="toolbar">
+               <h3>releve_71.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/releve_sms.jpg" alt="relevés sms" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window sms -->
+       
+       <div class="window window-closed plainte fichier-scan" data-window="plainte">
+           <div class="toolbar">
+               <h3>confiance.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/plainte.jpg" alt="plainte" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window plainte -->
+       
+       <div class="window window-closed paysage fichier-scan" data-window="phase1">
+           <div class="toolbar">
+               <h3>observation.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/phase1.jpg" alt="phase1" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window phase1 -->
+       
+       <div class="window window-closed paysage fichier-scan" data-window="phase2">
+           <div class="toolbar">
+               <h3>planification.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/phase2.jpg" alt="phase2" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window phase2 -->
+       
+       <div class="window window-closed paysage fichier-scan" data-window="phase3">
+           <div class="toolbar">
+               <h3>revendication.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/phase3.jpg" alt="phase3" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window phase3 -->
+       
+       <!-- Window Explorer -->
+       <div class="window window-closed" data-window="explorer">
+           <div class="toolbar">
+               <h3>Explorateur de fichiers</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="explorer-bar">
+                   <h4>Emplacement</h4>
+                   <p>Disque principal</p>
+                   <form class="search">
+                       <input type="search" placeholder="Rechercher" />
+                       <button class="search-valid"><img src="../assets/img/desktop/search-icon.svg" alt="button search"></button>
+                   </form>
+               </div>
+           
+           <div class="windowbody">
+               <div class="window-container">
+                   <table>
+                       <tr class="title">
+                           <th>Type</th>
+                           <th>Nom du fichier</th>
+                           <th>Dernière modif.</th>
+                       </tr>
+                       <tr class="file-list img" data-window="meeting">
+                           <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img meeting"></td>
+                           <td>affiche_meeting.jpg</td>
+                           <td>08/10/2014</td>
+                       </tr>
+                        <tr class="file-list pdf" data-window="allee-cover">
+                           <td><img src="../assets/img/desktop/pdf_small_icon.png" alt="fichier pdf l'allée"></td>
+                           <td>allee_cover.pdf</td>
+                           <td>27/03/2004</td>
+                       </tr>
+                       <tr class="file-list img" data-window="alsace-1">
+                           <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img alsace 1"></td>
+                           <td>alsace-1.jpg</td>
+                           <td>12/11/2007</td>
+                       </tr>
+                       <tr class="file-list img" data-window="alsace-2">
+                           <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img alsace 2"></td>
+                           <td>alsace-2.jpg</td>
+                           <td>12/11/2007</td>
+                       </tr>
+                       <tr class="file-list img" data-window="alsace-3">
+                           <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img alsace 3"></td>
+                           <td>alsace-3.jpg</td>
+                           <td>12/11/2007</td>
+                       </tr>
+                       <tr class="file-list img" data-window="alsace-4">
+                           <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img alsace 4"></td>
+                           <td>alsace-4.jpg</td>
+                           <td>12/11/2007</td>
+                       </tr>
+                       <tr class="file-list img" data-window="article1">
+                           <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img article1"></td>
+                           <td>article_17/05.jpg</td>
+                           <td>17/05/2015</td>
+                       </tr>
+                       <tr class="file-list img" data-window="article2">
+                           <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img article2"></td>
+                           <td>article_19/05-1.jpg</td>
+                           <td>19/05/2015</td>
+                       </tr>
+                       <tr class="file-list img" data-window="article3">
+                           <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img article3"></td>
+                           <td>article_19/05-2.jpg</td>
+                           <td>19/04/2015</td>
+                       </tr>
+                       <tr class="file-list img" data-window="article_contresens">
+                           <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img article_contresens"></td>
+                           <td>article_contresens.jpg</td>
+                           <td>14/08/2009</td>
+                       </tr>
+                       <tr class="file-list img" data-window="article_divorce">
+                           <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img article_divorce"></td>
+                           <td>article_divorce.jpg</td>
+                           <td>27/02/2010</td>
+                       </tr>
+                       <tr class="file-list img" data-window="avis_electricite">
+                           <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img avis_electricite"></td>
+                           <td>avis_elec_scan.jpg</td>
+                           <td>12/05/2015</td>
+                       </tr>
+                       <tr class="file-list pdf" data-window="correct_epreuve">
+                           <td><img src="../assets/img/desktop/pdf_small_icon.png" alt="fichier pdf correct_epreuve"></td>
+                           <td>brouillard_corr.pdf</td>
+                           <td>06/07/2002</td>
+                       </tr>
+                       <tr class="file-list pdf" data-window="brouillard-cover">
+                           <td><img src="../assets/img/desktop/pdf_small_icon.png" alt="fichier pdf correct_epreuve"></td>
+                           <td>brouillard_cover.pdf</td>
+                           <td>08/11/2002</td>
+                       </tr>
+                       <tr class="file-list img" data-window="carte">
+                           <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img carte"></td>
+                           <td>carte.jpg</td>
+                           <td>19/05/2015</td>
+                       </tr>
+                       <tr class="file-list word" data-window="chapitre-6">
+                           <td><img src="../assets/img/desktop/word_small_icon.png" alt="fichier word chapitre-6"></td>
+                           <td>ch6_essais.doc</td>
+                           <td>19/05/2015</td>
+                       </tr>
+                       <tr class="file-list word" data-window="archive-chapitres">
+                           <td><img src="../assets/img/desktop/ar_small_icon.png" alt="fichier ar chapitres"></td>
+                           <td>chapitres.ar</td>
+                           <td>14/05/2015</td>
+                       </tr>
+                       <tr class="file-list pdf" data-window="contresens">
+                           <td><img src="../assets/img/desktop/pdf_small_icon.png" alt="fichier pdf contresens"></td>
+                           <td>contresens_cover.pdf</td>
+                           <td>15/09/2009</td>
+                       </tr>
+                       <tr class="file-list img" data-window="critique_contresens">
+                           <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img critique_contresens"></td>
+                           <td>critique_contresens.jpg</td>
+                           <td>12/03/2009</td>
+                       </tr>
+                       <tr class="file-list word" data-window="leviathan">
+                           <td><img src="../assets/img/desktop/word_small_icon.png" alt="fichier word leviathan"></td>
+                           <td>leviathan.doc</td>
+                           <td>30/05/2015</td>
+                       </tr>
+                       <tr class="file-list word" data-window="livres">
+                           <td><img src="../assets/img/desktop/word_small_icon.png" alt="fichier word livres"></td>
+                           <td>livres.doc</td>
+                           <td>24/05/2015</td>
+                       </tr>
+                       <tr class="file-list pdf" data-window="morphee-cover">
+                           <td><img src="../assets/img/desktop/pdf_small_icon.png" alt="fichier pdf morphée couverture"></td>
+                           <td>morphée_cover.pdf</td>
+                           <td>14/12/2007</td>
+                       </tr>
+                       <tr class="file-list word" data-window="personnages">
+                           <td><img src="../assets/img/desktop/word_small_icon.png" alt="fichier word chapitre-6"></td>
+                           <td>personnages.doc</td>
+                           <td>14/01/2015</td>
+                       </tr>
+                       <tr class="file-list word" data-window="prelude">
+                           <td><img src="../assets/img/desktop/word_small_icon.png" alt="fichier word chapitre-6"></td>
+                           <td>prélude-1.doc</td>
+                           <td>07/02/2015</td>
+                       </tr>
+                       <tr class="file-list notes" data-window="recherches">
+                           <td><img src="../assets/img/desktop/note_small_icon.png" alt="fichier notes recherches"></td>
+                           <td>recherches.notes</td>
+                           <td>10/05/2015</td>
+                       </tr>
+                       <tr class="file-list img" data-window="alsace-5">
+                           <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img alsace 5"></td>
+                           <td>rénovations-chalet.jpg</td>
+                           <td>12/11/2007</td>
+                       </tr>
+                       <tr class="file-list img" data-window="scan_chanlez">
+                           <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img livres"></td>
+                           <td>scan_Chanlèz.jpg</td>
+                           <td>13/08/2006</td>
+                       </tr>
+                        <tr class="file-list img" data-window="dossier-presse">
+                           <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img scan_dossier_resu_presse"></td>
+                           <td>scan_dossier_resu_presse.jpg</td>
+                           <td>21/05/2015</td>
+                       </tr>
+                   </table>
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window Explorer -->
+       
+       <!-- Window Perso -->
+       <div class="window window-closed" data-window="perso">
+           <div class="toolbar">
+               <h3>Perso</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="explorer-bar">
+                   <h4>Emplacement </h4>
+                   <p>Disque principal</p>
+                   <form class="search">
+                       <input type="search" placeholder="Rechercher" />
+                       <button class="search-valid"><img src="../assets/img/desktop/search-icon.svg" alt="button search"></button>
+                   </form>
+               </div>
+           
+           <div class="windowbody">
+               <div class="window-container">
+                   <div class="dossier-principal">
+                       <a class="folder-file-folder" href="#">
+                           <span class="icon folder-icon"></span>
+                           <span class="file-name">Alsace-vues-chalet</span>
+                       </a>
+                        <a class="folder-file" href="#" data-window="scan_chanlez">
+                            <span class="icon img-icon"></span>
+                            <span class="file-name">scan_Chanlèz.jpg</span>
+                        </a>
+                        <a class="folder-file" href="#" data-window="article_divorce">
+                            <span class="icon img-icon"></span>
+                            <span class="file-name">article_divorce.jpg</span>
+                        </a>
+                   </div><!-- end dossier principal -->
+                   <div class="dossier-alsace">
+                      <div class="ariane">
+                          <span>Perso</span>
+                          <span>Alsace-vues-chalet</span>
+                      </div>
+                       <a class="folder-file" href="#" data-window="alsace-1">
+                           <span class="icon img-icon"></span>
+                           <span class="file-name">alsace-1.jpg</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="alsace-2">
+                           <span class="icon img-icon"></span>
+                           <span class="file-name">alsace-2.jpg</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="alsace-3">
+                           <span class="icon img-icon"></span>
+                           <span class="file-name">alsace-3.jpg</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="alsace-4">
+                           <span class="icon img-icon"></span>
+                           <span class="file-name">alsace-4.jpg</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="alsace-5">
+                           <span class="icon img-icon"></span>
+                           <span class="file-name">rénovations-chalet.jpg</span>
+                       </a>
+                   </div>                   
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window perso -->
+       
+       
+       <!-- Window Enquete -->
+       <div class="window window-closed" data-window="enquete">
+           <div class="toolbar">
+               <h3>Enquête</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="explorer-bar">
+                   <h4>Emplacement </h4>
+                   <p>Disque principal</p>
+                   <form class="search">
+                       <input type="search" placeholder="Rechercher" />
+                       <button class="search-valid"><img src="../assets/img/desktop/search-icon.svg" alt="button search"></button>
+                   </form>
+               </div>
+           
+           <div class="windowbody">
+               <div class="window-container">
+                  <div class="dossier-principal">
+                       <a class="folder-file-folder" href="#">
+                           <span class="icon folder-icon"></span>
+                           <span class="file-name">Articles</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="avis_electricite">
+                           <span class="icon img-icon"></span>
+                           <span class="file-name">avis_elec_scan.jpg</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="carte">
+                           <span class="icon img-icon"></span>
+                           <span class="file-name">carte.jpg</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="leviathan">
+                           <span class="icon word-icon"></span>
+                           <span class="file-name">leviathan.doc</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="dossier-presse">
+                           <span class="icon img-icon"></span>
+                           <span class="file-name">scan_dossier_resu_presse.jpg</span>
+                       </a>
+                   </div><!-- end dossier principal -->
+                   <div class="dossier-article">
+                      <div class="ariane">
+                          <span>Enquête</span>
+                          <span>Articles</span>
+                      </div>
+                       <a class="folder-file" href="#" data-window="article1">
+                           <span class="icon img-icon"></span>
+                           <span class="file-name">article_17/05.jpg</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="article2">
+                           <span class="icon img-icon"></span>
+                           <span class="file-name">article_19/05-1.jpg</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="article3">
+                           <span class="icon img-icon"></span>
+                           <span class="file-name">article_19/05-2.jpg</span>
+                       </a>
+                   </div>
+                   
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window Enquete -->
+       
+       <!-- Window travail -->
+       <div class="window window-closed" data-window="travail">
+           <div class="toolbar">
+               <h3>Travail</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="explorer-bar">
+                   <h4>Emplacement </h4>
+                   <p>Disque principal</p>
+                   <form class="search">
+                       <input type="search" placeholder="Rechercher" />
+                       <button class="search-valid"><img src="../assets/img/desktop/search-icon.svg" alt="button search"></button>
+                   </form>
+               </div>
+           
+           <div class="windowbody">
+               <div class="window-container">
+                  <div class="dossier-principal">
+                        <!-- fichiers -->
+                        <a class="folder-file-folder" href="#">
+                           <span class="icon folder-icon"></span>
+                           <span class="file-name">Couvertures</span>
+                       </a>
+                       <a class="folder-file-folder" href="#">
+                           <span class="icon folder-icon"></span>
+                           <span class="file-name">Abysse</span>
+                       </a>
+                        <a class="folder-file" href="#" data-window="meeting">
+                           <span class="icon img-icon"></span>
+                           <span class="file-name">affiche_meeting.jpg</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="correct_epreuve">
+                           <span class="icon pdf-icon"></span>
+                           <span class="file-name">brouillard_corr.pdf</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="critique_contresens">
+                           <span class="icon img-icon"></span>
+                           <span class="file-name">critique_contresens.jpg</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="article_contresens">
+                           <span class="icon img-icon"></span>
+                           <span class="file-name">article_contresens.jpg</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="livres">
+                           <span class="icon word-icon"></span>
+                           <span class="file-name">livres.doc</span>
+                       </a>
+                   </div><!-- end dossier principal -->
+                   <div class="dossier-cover">
+                      <div class="ariane">
+                          <span>Travail</span>
+                          <span>Couvertures</span>
+                      </div>
+                      <a class="folder-file" href="#" data-window="brouillard-cover">
+                           <span class="icon pdf-icon"></span>
+                           <span class="file-name">brouillard_cover.pdf</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="allee-cover">
+                           <span class="icon pdf-icon"></span>
+                           <span class="file-name">allee_cover.pdf</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="morphee-cover">
+                           <span class="icon pdf-icon"></span>
+                           <span class="file-name">morphée_cover.pdf</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="contresens">
+                           <span class="icon pdf-icon"></span>
+                           <span class="file-name">contresens_cover.pdf</span>
+                       </a>
+                   </div><!-- end dossier couvertures -->
+                   <div class="dossier-abysse">
+                      <div class="ariane">
+                          <span>Travail</span>
+                          <span>Abysse</span>
+                      </div>
+                      <a class="folder-file" href="#" data-window="chapitre-6">
+                           <span class="icon word-icon"></span>
+                           <span class="file-name">ch6_essais.doc</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="prelude">
+                           <span class="icon word-icon"></span>
+                           <span class="file-name">prélude-1.doc</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="personnages">
+                           <span class="icon word-icon"></span>
+                           <span class="file-name">personnages.doc</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="recherches">
+                           <span class="icon note-icon"></span>
+                           <span class="file-name">recherches.notes</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="archive-chapitres">
+                           <span class="icon ar-icon"></span>
+                           <span class="file-name">chapitres.ar</span>
+                       </a>
+                   </div><!-- end dossier abysse -->                   
+                   
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window travail -->
+       
+        <!-- Window recherches -->
+       <div class="window window-closed window-notes" data-window="recherches">
+           <div class="toolbar">
+               <h3>recherches.note</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           
+           <div class="windowbody">
+               <div class="window-container">
+                
+                <section class="index">
+                    <ul>
+                        <li><a href="#" class="targeted" data-note="note1">L'oeil du mal <span>10/05/2015</span></a></li>
+                        <li><a href="#" data-note="note2">Ce damné #5 <span>16/04/2015</span></a></li>
+                        <li><a href="#" data-note="note3">Compte-rendu <span>21/12/2014</span></a></li>
+                        <li><a href="#" data-note="note4">Origine <span>31/08/2014</span></a></li>
+                        <li><a href="#">+</a></li>
+                    </ul>
+                </section>
+                 <section class="note-editor">
+                     
+                    <div class="note1" data-note="note1" contenteditable="true">
+                        <p>Dernières recherches sur l'antre de mon tueur. 
+    Je pensais d'abord à une sorte de conteneur plongé dans le noir où une fine fenêtre permet le passage d'un fin rayon de lumière traçant alors un trait blanc au milieu de l'endroit sans pour autant l'éclairer. J'en ai dessiné le plan dans mon carnet.
+                        </p>
+                        <p>&Eacute;preuve de correction bien reçue par l'éditeur et actuellement en cours de traitement. Je suis plutôt satisfait du chapitre 5, il fait ce que je pourrais appeler une interlude en suivant un personnage secondaire permettant de calmer un peu la tension après l'enlèvement de Gautier. Le chapitre 6 se consacrera au réveil de ce dernier dans l'antre du kidnappeur où se déroulera je pense le reste de l'intrigue. Aucune idée encore de comment se passera le reste du récit. Je dois reprendre l'écriture et commencer ce chapitre avant d'avoir trop de retard, m'enfermer de nouveau dans cet atelier afin de m'imprégner dans mon histoire, de ne faire qu'un avec mes personnages. La quiétude de l'endroit me permettra de me concentrer. </p>
+                        <p>C'est parti, je commence l'écriture du chapitre avec seulement quelques jours de retard... Je n'en suis pas encore bien loin mais il est temps que la roue tourne de nouveau. Gautier se réveille donc dans ce conteneur, perdu, ne sachant pas que faire, comprenant qu'il a été trop loin et qu'il était stupide de faire justice soit même.  Quelques paragraphes convaincant. </p>
+                        
+                        <ul>
+                            <li>Rencontre avec le meurtrier pour prévenir Gautier de ce qui l'attend</li>
+                            <li>Retour sur Ludivine (rdv avec le commissaire LeGrantier)</li>
+                            <li>Meurtre d'André Sagnier (demander à Victor pour le plan)</li>
+                            <li>Fin du chapitre 6 sur Gautier</li>
+                            <li>Prendre un énorme café et emmener Clara au ciné pour fêter ça...</li>
+                        </ul>
+                     </div>
+                     <div class="note2" data-note="note2" contenteditable="true">
+                         <ul>
+                            <li>Terminer le ch5 <strong>DONE</strong></li>
+                            <li>Envoyer le ch5 à l'éditeur <strong>DONE (16/04/15)</strong></li>
+                             <li><s>Contacter Victor pour le plan (vacances)</s></li>
+                            <li>Etablir liste meurtres <strong>DONE</strong></li>
+                            <li>Prendre avec la brigade canine Belgique <strong>DONE</strong></li>
+                        </ul>
+                     </div>
+                     <div class="note3" data-note="note3" contenteditable="true">
+                         <p>Introduction terminée, il est désormais temps de reprendre tout ce que j'ai rassemblé pour le moment afin d'avoir les idées claires...</p>
+                         <p>Titre du roman : Abysse (validé) référence aux zones profondes des océans où la lumière du soleil est absorbée plongeant ainsi le décor dans une pénombre totale. </p>
+                         <p>Fait référence ici à deux choses : </p>
+                         <ul>
+                             <li>La folie de l'antagoniste qui, au fur et à mesure de l'avancement, va plonger plus profondément dans la démence. meurtre sur meurtre.</li>
+                             <li>Le protagoniste que l'on va suivre qui va se retrouver enfermer dans un endroit (container) où règne une profonde obscurité.</li>
+                         </ul>
+                         
+                         <p>J'ai aussi organisé un rdv avec un sociologue expert dans les dérives mentales liés à des maladies. Je le vois vendredi prochain (note agenda). Je n'ai pas envie de demander de l'aide à Rachelle, elle n'attends que ça de ma part et ce serait trop facile. A moi de prouver que je peux m'en sortir seul.</p>
+                         <p>Début de l'écriture du chapitre 1 : mercredi 24 (voir planning presse)
+<br /><strong>Ne pas oublier la rencontre auteurs à Namur le 12/12 !!!!</strong>
+</p>
+                     </div>
+                     <div class="note4" data-note="note4" contenteditable="true">
+                         <p>Envie de changer un peu.<br />
+Partir sur l'idée que le protagoniste principal se retrouve piégé par l'antagoniste et forcé de le regarder commettre ses délits. Envie de montrer que le protagoniste que l'on suit au début ne sera au final qu'un spectateur, comme le lecteur. L'aide viendra d'un autre personnage. J'en ai parlé à mon agent, il aime l'idée mais après tout je le paye pour qu'il me congratule à chaque phrase que je prononce. 
+</p>
+                    <p>Fin spectaculaire et brutale ? Tout mes récits se terminent bien, si je changeais un peu ? Si le méchant gagnait à la fin ? <strong>(risque du perdre du publique)</strong> </p>
+                    
+                    <p>Antagoniste : Personnage perturbé, sans repère car il n'a pas eu une enfance facile et personne ne l'a aidé à se construire dans la société. Il n'a donc aucun jugement sur ce qu'il fait, jugeant cela bon et nécessaire dans son esprit. Légèrement schizophrène (réfléchir à comment l'intégrer, double personnalité peut être sympathique car je pourrais jouer sur 2 plans : le premier où l'on suit l'antagoniste comme une personne normale et gentille, de l'autre son côté sombre où il sera uniquement appelé par un pseudonyme.)</p>
+                    
+                    <p>Réfléchir à un titre (sombre, folie, schizophrénie, enfermement, obscurité...)</p>
+                    <p>Séance de brainstorming avec Josh la semaine prochaine</p>
+                    <p>Commencer à réfléchir à une intro.</p>
+                     </div>
+                 </section>
+                 
+               </div>
+           </div>
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window recherches-->
+       
+       
+        <!-- Window livres -->
+       <div class="window window-closed window-doc" data-window="livres">
+           <div class="toolbar">
+               <h3>livres.doc</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="tools">
+              <div class="container-tools">
+                   <button type="button" data-func="bold"><span>B</span></button>
+                   <button type="button" data-func="italic"><span>I</span></button>
+                   <button type="button" data-func="underline"><span>S</span></button>
+                   <button type="button" data-func="justifyleft"><span>left</span></button>
+                   <button type="button" data-func="justifycenter"><span>center</span></button>
+                   <button type="button" data-func="justifyright"><span>right</span></button>
+                   <div class="changeFont">
+                      <select data-func="fontname">
+                        <optgroup label="Serif">
+                          <option value="Georgia">Georgia</option>
+                          <option value="merriweather_regular">Merriweather</option>
+                           <option value="Palatino Linotype">Palatino Linotype</option>
+                          <option value="Times New Roman">Times New Roman</option>
+                        </optgroup>
+                        <optgroup label="Sans-Serif">
+                         <option value="Lato" selected>Lato (Default)</option>
+                          <option value="Arial">Arial</option>
+                          <option value="Arial Black">Arial Black</option>
+                          <option value="Comic Sans MS">Comic Sans MS</option>
+                          <option value="Impact">Impact</option>
+                          <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                          <option value="Tahoma">Tahoma</option>
+                          <option value="Trebuchet MS">Trebuchet MS</option>
+                          <option value="Verdana">Verdana</option>
+                        </optgroup>
+                        <optgroup label="Monospace">
+                          <option value="Courier New">Courier New</option>
+                          <option value="Lucida Console">Lucida Console</option>
+                        </optgroup>
+                      </select>
+                  </div><!-- end changeFont -->
+                </div><!-- end container tools -->
+              </div><!-- end tools -->
+           <div class="windowbody">
+               <div class="window-container">
+                
+                 <div class="text-editor" contenteditable="true">
+                     <h1>Livres</h1>
+                     
+                     <p>
+                         1999 - <b>Le Canal</b> - Polar, Believe Presse - ISBN 978-2-266-21857-3<br />
+                        2002 - <b>Brouillard</b> - Polar, Believe Presse - ISBN 978-2-253-15134-0<br />
+                        2004 - <b>L'allée</b> -  Polar, Believe Presse - ISBN 978-2-253-16978-9<br />
+                        2007 - <b>Projet Morphée</b> - Polar, Believe Presse - ISBN 978-2-266-20704-1<br />
+                        2009 - <b>A contre sens</b> - Polar, Believe Presse - ISBN 978-2-253-19510-8<br />
+                        2015 - <b>Brouillard (rédition</b>) - Polar, Polar Pocket - ISBN 978-2-266-19347-4<br />
+                        20(??) - <b>Abysse</b> - Polar, Believe Presse - ISBN 978-2-253-09300-8<br />
+
+  
+                     </p>
+                 </div>
+                 
+               </div>
+           </div>
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window livres-->
+       
+       <!-- Window  brouillard couverture -->
+       <div class="window window-closed fichier-scan"  data-window="brouillard-cover">
+           <div class="toolbar">
+               <h3>brouillard_cover.pdf</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/brouillard.jpg" alt="couverture brouillard" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window brouillard couverture -->
+       
+       <!-- Window  l'allée couverture -->
+       <div class="window window-closed fichier-scan fichier-cover"  data-window="allee-cover">
+           <div class="toolbar">
+               <h3>allee_cover.pdf</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/allee.jpg" alt="couverture l'Allée" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window l'allée couverture -->
+       
+       <!-- Window  morphée couverture -->
+       <div class="window window-closed fichier-scan"  data-window="morphee-cover">
+           <div class="toolbar">
+               <h3>morphée_cover.pdf</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/morphee.jpg" alt="couverture Moprhée" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window morphée couverture -->
+       
+       <!-- Window  contresens -->
+       <div class="window window-closed fichier-scan cover-window"  data-window="contresens">
+           <div class="toolbar">
+               <h3>contresens_cover.pdf</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/contresens.jpg" alt="couverture contresens" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window contresens -->
+       
+       <!-- Window Leviathan-->
+       <div class="window window-closed window-doc" data-window="leviathan">
+           <div class="toolbar">
+               <h3>Leviathan.doc</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="tools">
+              <div class="container-tools">
+                   <button type="button" data-func="bold"><span>B</span></button>
+                   <button type="button" data-func="italic"><span>I</span></button>
+                   <button type="button" data-func="underline"><span>S</span></button>
+                   <button type="button" data-func="justifyleft"><span>left</span></button>
+                   <button type="button" data-func="justifycenter"><span>center</span></button>
+                   <button type="button" data-func="justifyright"><span>right</span></button>
+                   <div class="changeFont">
+                      <select data-func="fontname">
+                        <optgroup label="Serif">
+                          <option value="Georgia">Georgia</option>
+                          <option value="merriweather_regular">Merriweather</option>
+                           <option value="Palatino Linotype">Palatino Linotype</option>
+                          <option value="Times New Roman">Times New Roman</option>
+                        </optgroup>
+                        <optgroup label="Sans-Serif">
+                         <option value="Lato" selected>Lato (Default)</option>
+                          <option value="Arial">Arial</option>
+                          <option value="Arial Black">Arial Black</option>
+                          <option value="Comic Sans MS">Comic Sans MS</option>
+                          <option value="Impact">Impact</option>
+                          <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                          <option value="Tahoma">Tahoma</option>
+                          <option value="Trebuchet MS">Trebuchet MS</option>
+                          <option value="Verdana">Verdana</option>
+                        </optgroup>
+                        <optgroup label="Monospace">
+                          <option value="Courier New">Courier New</option>
+                          <option value="Lucida Console">Lucida Console</option>
+                        </optgroup>
+                      </select>
+                  </div><!-- end changeFont -->
+                </div><!-- end container tools -->
+              </div><!-- end tools -->
+           <div class="windowbody">
+               <div class="window-container">
+                
+                 <div class="text-editor" contenteditable="true">
+                     
+                     
+                     <p><i>18/05/2015  - 23h12</i><br >
+                        Non, Clara n'a pas fuguée. Alors...<br />
+                        Qu'est-ce qui peut pousser un homme à enlever une fille ? <br />
+                        Quel élément déclencheur peut contraindre une personne, qui a fait sa place dans la société, à commettre un tel acte ?</p>
+                        
+                        <p>Je ne suis ni psychologue, ni policier et encore moins profiler, mais dans mes romans, j’ai abusé à outrance de la face cachée et sombre de l’être humain. Mes recherches m’ont conduit bien plus loin que le commun des mortels ne peut l’imaginer alors oui, je suis expert dans ce genre d’enquête, sans prétention, et ces détraqués sont mes amis au fil des pages. Donc, autant m'appliquer à faire ce pourquoi je suis doué : écrire. Je dois maitriser cette personne comme un de mes personnages de roman, me mettre dans sa tête et le construire, le façonner en fonction des faits. Je veux pouvoir le reconnaître dans la rue si je le croise et anticiper son prochain repas ! Je suis sûr que je peux parvenir à en savoir un peu plus sur lui. Ce n’est pas un aliéné et tout homme normal n’enlève pas des enfants si ce n’est pour un compte personnel à régler. Que reste-t-il ?  A moi de me mettre en scène.</p>
+                        
+                        <p><i>Même jour - 02h25</i><br />
+                        La première question que je me pose est celle-ci : Est-ce que ma fille a été choisie au hasard où est-ce le fruit d'une raison particulière ? 
+Dans le premier cas, il est fort à parier que ce n'est pas la première fois qu'il (ou elle) enlève un enfant. Je dois alors disséquer tous les cas d'enlèvements ou de disparitions d'enfants rapportés dans les environs. 
+C'est ce que j'ai fait. Le problème est que je n'ai trouvé aucun cas concrets en plus de 12 ans et si j'élimine les fugues, il est peu probable (voir jamais vu), qu'une personne fasse une pause aussi grande. 
+Serait-ce alors une première fois ? C’est possible, mais je n'ai aucun d'élément qui pourrait me le confirmer.
+
+                        </p>
+                        
+                        <p><i>20/05/2015 - 07h36</i><br />
+                        Ma petite Clara me manque et j’ai cogité toute la nuit ! Impossible de m’endormir avec cette histoire qui a littéralement pris possession de mon cerveau et de mon cœur. Mon ex, Rachelle, me désigne comme seul responsable. Trop facile… mais culpabilisant tout de même, surtout quand les médias s’en mêlent et ouvrent à nouveau les portes de mon passé d’alcoolique bourreau de travail ! Tout cela a causé un gigantesque bouillon pour finalement accoucher de quelque chose de concret…
+                        </p>
+                        
+                        <p>Et si ce n’était pas le fruit du hasard ? Je m’explique : je suis une personne célèbre, qui a un réseau de fans assez étendu. On a souvent parlé de moi dans la presse et le succès de mes romans n'est plus à prouver. Je me suis alors imaginé un scénario tout à fait plausible… Et si tout cela était l’œuvre d’un fan ou du moins, d’une personne qui me connaît et aussi mes bouquins ? Je suis riche, célèbre et j’ai la chance de vivre de ma passion sous les projecteurs… j’ai une enfant magnifique et eu une femme splendide. J’ai donc de quoi provoquer des pulsions ! Jalousie, envie…  Une personne ayant tout perdu et joué de malchance aurait peut-être vu l’enlèvement de Clara comme unique solution ? Mais alors, pourquoi n’y a-t-il eu aucune rançon de demandée, depuis 4 jours ?
+</p>
+                       <p>Si ce n’est pas cette hypothèse, pourquoi avoir enlevé ma fille ?
+Cette dernière question me laisse comme un goût amer dans la bouche, m’ouvre à de multiples suppositions, toutes plus horribles les unes que les autres.
+</p>
+                        
+                        <p><i>27/05/2015 - 02h00</i><br />
+Au vu des divers documents que le kidnappeur m'a fourni via ces sites internet, la thèse du hasard est désormais complètement rayée. C’est avec une certitude qui m’emplit d’angoisse, que je peux désormais affirmer que cette personne me vise personnellement et pour une raison qui me laisse encore dans le doute.
+Ce type ne doit pas être traité à la légère et il n’est pas question de remettre en cause ses convictions. Son mode opératoire et la torture psychologique qu’il m’inflige sont une évidence sans bornes : il est appliqué et son scénario était murement réfléchi.
+                        </p>
+                        <p>Je le perçois envieux de ma situation, mais sans aucune agressivité, plutôt heureux de ma réussite… c’est peut-être un lecteur assidu, mais alors, qu’ai-je fait pour qu’il m’en veuille ?
+                        </p>
+                        <p>Le fait d’avoir révélé mon vrai côté, que les médias ont eu le plaisir de dévoiler à la face du monde, a sans doute été son élément déclencheur.  Un problème de boisson résultant de cette incapacité à gérer mon stress, causé par la pression que mon éditeur imposait et les fans que je ne voulais surtout pas décevoir… Et, j'ai complètement mit de côté ma vie de famille,  au point que ma fille ne me reconnaisse même plus. Rachelle a demandé le divorce et j'ai sombré dans un chaos encore plus profond. </p>
+                        
+                        <p>C’est à cet instant précis, je pense, qu’il a décidé de faire ce qui paraissait nécessaire : 
+kidnapper ma fille et me faire passer une épreuve. Je reste optimiste et espère ne pas me tromper, reste à savoir comment il va mener son jeu ! L’heure n’est qu’aux suppositions, mais je peux dors et déjà comprendre qu’il me démontre que tout est de ma faute. Ma fille a été enlevée pour que je me reprenne en mains et surtout, que je me sente coupable de ma déchéance. Ma descente aux enfers est mon unique responsabilité, il me l’a bien fait comprendre.<br />
+Il me connaît ou me suit de très prêt. Journaliste ? Proche ? Maison d’édition ? Impossible… 
+</p>
+                        
+                        <p><i>30/05/2015</i><br />
+Ma seule culpabilité pour l’instant est d’avoir créé ce monstre, mon Léviathan (pour le reste, je verrai par la suite, je n’ai pas le droit de m’apitoyer et encore moins le temps). Il est doué, tellement doué que de l’avis général, j’ai enlevé ma fille et je l’ai peut-être même tuée. C’est ce qu’il recherchait et je l’ai compris bien tard. Son but est de me punir d’une sordide façon.<br />
+                       Mais que compte-t-il faire de Clara ?  La garder prisonnière, pour lui ou la faire disparaître ?<br />
+                       Je ne sais pas… Ma tête est aussi encombrée que le ring de Bruxelles aux heures de pointes, je suis à bout ! Si son but est que je ne sorte pas vivant de toute cette histoire, il pourrait bien obtenir gain de cause car, qui sait ce qui m’attend au bout de ce calvaire ?
+                        </p>
+                 </div>
+                 
+               </div>
+           </div>
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window a Leviathan -->
+       
+        <!-- Window  article contresens -->
+       <div class="window window-closed fichier-scan"  data-window="article_contresens">
+           <div class="toolbar">
+               <h3>article_contresens.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/article-contresens.jpg" alt="article contresens" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window article_contresens -->
+       
+       <!-- Window  critique contresens -->
+       <div class="window window-closed fichier-scan"  data-window="critique_contresens">
+           <div class="toolbar">
+               <h3>critique_contresens.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/critique-contresens.jpg" alt="critique contresens" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window critique contresens-->
+       
+       <!-- Window  alsace 1 -->
+       <div class="window window-closed paysage fichier-scan"  data-window="alsace-1">
+           <div class="toolbar">
+               <h3>alsace-1.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/photos/alsace-1.jpg" alt="photo alsace 1" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window alsace 1 -->
+       
+       <!-- Window  alsace 2 -->
+       <div class="window window-closed paysage fichier-scan"  data-window="alsace-2">
+           <div class="toolbar">
+               <h3>alsace-2.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/photos/alsace-2.jpg" alt="photo alsace 2" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window alsace 2 -->
+       
+       <!-- Window  alsace 3 -->
+       <div class="window window-closed paysage fichier-scan"  data-window="alsace-3">
+           <div class="toolbar">
+               <h3>alsace-3.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/photos/alsace-3.jpg" alt="photo alsace 3" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window alsace 3 -->
+       
+       <!-- Window  alsace 4 -->
+       <div class="window window-closed paysage fichier-scan"  data-window="alsace-4">
+           <div class="toolbar">
+               <h3>alsace-4.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/photos/alsace-4.jpg" alt="photo alsace 4" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window alsace 4 -->
+       
+       <!-- Window  alsace 5 -->
+       <div class="window window-closed paysage fichier-scan"  data-window="alsace-5">
+           <div class="toolbar">
+               <h3>rénovations-chalet.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/photos/alsace-5.jpg" alt="photo alsace 5" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window alsace 5 -->
+       
+       <!-- Window  article1 -->
+       <div class="window window-closed fichier-scan"  data-window="article1">
+           <div class="toolbar">
+               <h3>article_17/05.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/article_rumeurs.jpg" alt="article rumeurs disparition" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window article1 -->
+       
+        <!-- Window  article2 -->
+       <div class="window window-closed paysage fichier-scan"  data-window="article2">
+           <div class="toolbar">
+               <h3>article_19/05-1.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/article_j2.jpg" alt="article disparition officielle" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window article2 -->
+       
+       <!-- Window  article3 -->
+       <div class="window window-closed fichier-scan"  data-window="article3">
+           <div class="toolbar">
+               <h3>article_19/05-2.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/article_leslie.jpg" alt="article leslie" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window article3 -->
+       
+       <!-- Window affiche divorce -->
+       <div class="window window-closed fichier-scan paysage" data-window="article_divorce">
+           <div class="toolbar">
+               <h3>article_divorce.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/article_divorce.jpg" alt="article divorce" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window divorce -->
+       
+       <!-- Window  scan_chanlez -->
+       <div class="window window-closed fichier-scan paysage" data-window="scan_chanlez">
+           <div class="toolbar">
+               <h3>article_divorce.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/article_film.jpg" alt="film brouillard annulé" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window scan_chanlez -->
+       
+    
+      <!-- Window affiche carte -->
+       <div class="window window-closed fichier-scan paysage" data-window="avis_electricite">
+           <div class="toolbar">
+               <h3>carte.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/avis-coupure.png" alt="avis coupure de courant" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window carte -->
+       
+       <!-- Window affiche coupure -->
+       <div class="window window-closed fichier-scan paysage" data-window="carte">
+           <div class="toolbar">
+               <h3>carte.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/carte.png" alt="carte" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window coupure -->
+       
+       
+       <!-- Window Correct-epreuve -->
+       <div class="window window-closed pdf-window" data-window="correct_epreuve">
+           <div class="toolbar">
+               <h3>brouillard_corr.pdf</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           
+           
+           <div class="windowbody">
+               <div class="window-container">
+                  
+                   <div id="page1" class="page">
+                       <div class="page-container">
+                           <h1>Brouillard</h1>
+                           <p><i>Épreuve de correction 003</i></p>
+                           <p>14/05/2002</p>
+                           <p>Yann Dorner</p>
+
+                           <h2>Propriété des éditions Bowell, ne pas faire circuler </h2>
+                       </div><!-- end page container -->
+                   </div><!-- end page 1 -->
+                   
+                   <div id="page2" class="page">
+                          <div class="page-container">
+                           <section class="intro-page2">
+                               <p>NE: les corrections doivent être appliquées au plus tôt pour le lundi 19 et ce, afin de respecter le délai final qui a été négocié. </p>
+
+                           </section>
+                           <ul>
+                                <li><p>ch3.§ 4</p></li>
+                                <li>
+                                    <p>Levine, l’homme au cœur plus solide qu’un morceau de bois de la forêt pétrifiée en Arizona et au mental plus aiguisé qu’une superbe lame d’acier. Le bougre, totalement athée et insouciant… priait ! Il implorait littéralement tous les saints  afin que ces images délogent enfin de son cerveau meurtri. Et pourtant, il en avait vu des choses… Et des terribles ! Mais les évènements des jours précédents avaient brisé quelque chose, laissant éclater son âme humaine et fragile. Il remettait tout en question et en venait à espérer un miracle ou peut-être, simplement un début de réponse… qui ne vint pas.</p>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li><p>ch6.§ 2</p></li>
+                                <li>
+                                    <p>“ - J’avais déjà vu ça autrefois… mais pas sous cette forme, termina-t-il dans un murmure.”</p>
+                                    <p>D’un geste de la main, il demanda un autre café, fixant le fond de sa tasse vide comme si une quelconque image y était gravée.  
+Alan s’impatientait, attendant avec espoir qu’il livre un peu plus de détails et sorte enfin de ce lourd silence dans lequel il s’était plongé. Avisant qu’il n’obtiendrait rien de plus, il tenta deux ultimes questions :
+</p>
+                                    <p>" - Pensez-vous qu’il s’agisse du même homme? Questionna-t-il en s’installant en face de lui.  Qu’il cible un autre type de personne ?"</p>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li><p>ch6.§ 26</p></li>
+                                <li>
+                                    <p>C’est sans un regard en arrière qu’il quitta les lieux et lorsque la porte se referma derrière lui, un vent frais s’insinua directement dans sa nuque. Après une grande inspiration, il put enfin se délivrer des odeurs de friture et de tabacs froids qui empestaient dans le petit café. Sa veste ouverte, il laissa le vent s’infiltrer et s’enfonça dans le brouillard matinal du centre ville.</p>
+                                </li>
+                            </ul>
+                        </div><!-- end page-container-->
+                   </div><!-- end page 2 -->
+                   
+                    <div id="page3" class="page">
+                        <div class="page-container">
+                           <ul>
+                                <li><p>ch8.§§ 6 8</p></li>
+                                <li>
+                                    <p>Alan vérifia à nouveau la photo, espérant y trouver un détail qui aurait pu lui échapper.  L’homme  aux petits yeux fins et plissés tournait légèrement la tête, et même si une lourde écharpe masquait son visage jusqu’au nez, on pouvait néanmoins distinguer son regard. Des yeux d’aigles et une expression assurée où rien ne laissait présager qu’il puisse être l’auteur de ce crime odieux et barbare.</p>
+                                    <p>Il fixa le cliché une dernière fois, frissonnant à l’idée que cet homme puisse être son tueur et enrageant littéralement ne pas avoir son identité.</p>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li><p>ch12.§§ 8 10</p></li>
+                                <li>
+                                    <p>Le GPS indiquait précisément le numéro 5040… Rien de plus simple à présent que de s’y rendre et d’interroger cette femme, qui selon lui, était une vraie mine d’or en informations ! </p>
+                                    <p>Le crépuscule s’imposait… Il jeta un rapide coup d’œil au cadran griffé de sa vieille montre et poussa un peu plus sur l’accélérateur. Il dut bien vite lever le pied car à la radio, une voix nasillarde confirma ses craintes et son regard sur l’environnement : le brouillard s’épaississait de minutes en minutes. </p>
+                                    <p>(…) Il plissa les yeux, crispé, mais concentré sur les quelques mètres visibles qui formaient un halo irréel autour de son véhicule. Alors qu’il désespérait de toucher enfin au but, un lampadaire fatigué et malheureusement inutile, se dégagea subitement de la brume épaisse.</p>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li><p>ch13.§ 1</p></li>
+                                <li>
+                                    <p>Naïvement, il se sentait en sécurité mais dans l’obscurité de l’allée brumeuse, une paire d’yeux se dégageait de l’épaisse fumée. Elle guettait le moment... L'instant opportun pour bondir et transformer une vie en véritable enfer.</p>
+                                </li>
+                            </ul>
+                        </div><!-- end page-container-->
+                   </div><!-- end page 3 -->
+                   
+                    <div id="page4" class="page">
+                       <div class="page-container">
+                           <ul>
+                                <li><p>ch13.§§ 10 11</p></li>
+                                <li>
+                                    <p>Il était sur le bas côté, assis contre un mur comme si on l'avait déposé.</p>
+                                    <p>Sa tête tournée sur la gauche, on pourrait croire qu'il dormait si l'œil droit n'était plus manquant et que la mare de sang dans laquelle il baignait était absence. L'oeil droit,  encore et toujours comme une véritable signature. Une seule chose était différente : la personne n'était pas un enfant mais un adulte.</p>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li><p>ch12.§ 18</p></li>
+                                <li>
+                                    <p>“ - Je dirais entre 2 et 3 heures du matin, précisa le médecin légiste, mais je ne pourrai pas être plus précise tant qu’une autopsie complète n’aura pas été réalisée. La seule chose dont je suis certaine, ajouta-t-elle,  c’est qu’il était encore vivant quand on lui a extrait l’œil droit.”</p>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li><p>ch12.§ 18</p></li>
+                                <li>
+                                    <p>Un tueur en série ne change jamais son mode opératoire et pour cause, il laisse sa signature, il veut que l’on sache ! Il est abominablement fier de son œuvre, il désire être compris et reconnu. Alors, qu’avait-il pu se produire pour que ce malade mental change sa manière de procéder ? Comment trouver le « pourquoi » ? Alors que la nuit promettait, encore une fois, d’être bien longue, Alan fouilla dans ses poches et en extirpa nerveusement un paquet de gauloises sans filtres. Il aspira la fumée et ferma les yeux sur le soleil couchant.</p>
+                                </li>
+                            </ul>
+                        </div><!-- end page-container-->
+                        
+                   </div><!-- end page 4 -->
+                   
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="pdf-bottom">
+               <ul>
+                   <li><a href="#">Précédent</a></li>
+                   <li></li>
+                   <li><a href="#">Suivant</a></li>
+               </ul>
+               <p>Poids : 899 Ko</p>
+           </div>
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window correct-epreuve -->
+       
+       
+       
+       
+       <!-- Window affiche disparition -->
+       <div class="window window-closed disparition fichier-scan" data-window="disparition">
+           <div class="toolbar">
+               <h3>affiche_disparition.pdf</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/affiche-disparition.jpg" alt="affiche" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window disparition -->
+       
+       
+       
+       <!-- Window affiche meeting -->
+       <div class="window meeting window-closed fichier-scan" data-window="meeting">
+           <div class="toolbar">
+               <h3>affiche_meeting.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/affiche-meeting.jpg" alt="affiche meeting" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window meeting -->
+       
+       <!-- Window dos brouillard -->
+       <div class="window window-closed brouillard fichier-scan" data-window="brouillard">
+           <div class="toolbar">
+               <h3>dos.pdf</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/brouillard-dos.jpg" alt="Brouillard Dos" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window brouillard -->
+       
+       <!-- Window dossier presse -->
+       <div class="window window-closed presse fichier-scan" data-window="dossier-presse">
+           <div class="toolbar">
+               <h3>scan_dossier_resu_presse.jpg</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/dossier-presse.jpg" alt="dossier presse" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window disparition -->
+       
+       
+       
+       <!-- Window mail -->
+       <div class="window window-closed" data-window="mail">
+           <div class="toolbar">
+               <h3>Mails</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                  <section class="mails-toolbar">
+                      <div class="top-toolbar">
+                          <div class="yann-profile"></div>
+                          <div class="panel-toolbar">
+                              <h1>yann.dorner@gmail.com</h1>
+                              <ul>
+                                  <li><a href="#">Boite</a></li>
+                                  <li><a href="#">Brouillons</a></li>
+                                  <li><a href="#">Corbeille</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                      <ul class="messages-list">
+                          <li>
+                              <a href="#" class="new" data-message="message1">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>Harry</p>
+                                      <p>RE : Courage et soutien</p>
+                                      <p>07/06/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="new" data-message="message2">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>Actu 24/24</p>
+                                      <p>Informations complémentaires</p>
+                                      <p>07/06/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="new" data-message="message3">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>Leslie</p>
+                                      <p>TA faute</p>
+                                      <p>06/06/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="spam" data-message="message4">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>Rachelle</p>
+                                      <p>RE : A quoi tu joues ?</p>
+                                      <p>05/06/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="old" data-message="message5">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>Polar Pocket</p>
+                                      <p>Edition de poche</p>
+                                      <p>05/06/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="old" data-message="message6">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>Josh - LitAgent</p>
+                                      <p>Date de livraison</p>
+                                      <p>04/06/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="old" data-message="message7">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>Max</p>
+                                      <p>C'est quoi ce bordel ?</p>
+                                      <p>04/06/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="old" data-message="message8">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>Will</p>
+                                      <p>Dossier</p>
+                                      <p>03/06/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="spam" data-message="message9">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>IRS</p>
+                                      <p>Get your tax refund now</p>
+                                      <p>03/06/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="old" data-message="message10">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>Maman</p>
+                                      <p>Ton téléphone</p>
+                                      <p>03/06/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="old" data-message="message11">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>Josh - LitAgent</p>
+                                      <p>Gaffe aux menaces !!!</p>
+                                      <p>30/04/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="old" data-message="message12">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>Michel</p>
+                                      <p>Mon argent</p>
+                                      <p>28/04/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="old" data-message="message13">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>Josh - LitAgent</p>
+                                      <p>Tendances trimestrielles</p>
+                                      <p>27/04/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="old" data-message="message14">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>Rachelle</p>
+                                      <p>Un coeur là dessous ?</p>
+                                      <p>23/04/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="old" data-message="message15">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>Harry</p>
+                                      <p>Alsace</p>
+                                      <p>22/04/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="old" data-message="message16">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>contact@lapage.be</p>
+                                      <p>rencontre "Fan-auteur"</p>
+                                      <p>17/04/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="old" data-message="message17">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>marc@believe-std.com</p>
+                                      <p>Attestation réception</p>
+                                      <p>17/04/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="old" data-message="message18">
+                                  <div class="profil-picture"></div>
+                                  <div class="message-title">
+                                      <p>Camille Sévier</p>
+                                      <p>Séjour avec Clara</p>
+                                      <p>12/04/15</p>
+                                  </div>
+                              </a>
+                          </li>
+                      </ul>
+                  </section>
+                  <section class="mails-messages">
+                      <div id="intro">
+                          <h1>Bienvenue dans votre boîte de messagerie !</h1>
+                          <div class="intro-mail">
+                             <h1>Mail</h1><span>8.6.12</span>
+                             
+                             <h2>La rapidité comme cheval d'achille.</h2>
+                              <p>Que vous ayez qu'une seule adresse de messagerie ou une bonne dizaine, Mail sera toujours aussi rapide. L'efficacité avec laquelle vous pouvez consulter vos messages, vos différents flux, abonnements et adresses vous ferons oublier la lenteur des services en ligne. Découvrez toute les fonctionnalités que Mail propose avec de vous rendre la vie plus agréable.</p>
+                              <a href="#">En savoir plus...</a>
+                              
+                              <h2>Participer au développement.</h2>
+                              <p>Tout les jours, c'est une véritable communauté de contributeurs qui s'organisent afin de s'assurer que l'utilisation de Mail reste la plus confortable possible et ne cesse de s'améliorer.  Vous aussi, participez et aidez-nous à rendre Mail encore meilleur. Nous avons besoin de vous pour aider les autres utilisateurs et c'est ce qui fait la force de ce logiciel : vous.</p>
+                              <a href="#">En savoir plus...</a>
+                          </div>
+                      </div>
+                      <div class="message" data-message="message1">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>harry.ns@gmail.com</li>
+                                  <li><strong>Sujet : RE :</strong>Courage et soutien</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">07/06/2015</p>
+                              
+                          </div>
+                          <div class="message-content">
+                              
+                              <p>Salut Yann,<br />
+                                On vient de rentrer de vacances avec Flo et on a appris la nouvelle dans les journaux… Tu aurais pu nous téléphoner, on se connait depuis assez longtemps pour ne pas te juger. En tout cas, tu as tout mon soutien et celui de Flo aussi.</p>
+                             <p>On a distribué des affiches un peu partout dans le quartier, même si la plupart des gens du pays savent ce qu'il se passe. Ce n'est pas passé inaperçu...</p>
+                              <p>Par contre, fait gaffe, des ragots circulent sur ta relation avec Rachelle. Certains disent que tu n'aurais pas hésité à enlever Clara afin qu’elle ne puisse plus voir sa mère. Ce ne sont que des rumeurs, mais tu connais les gens. </p>
+                             <p>Viens à la maison quand tu peux.<br />
+                                Courage,<br />
+                                Harry et Flo.</p>
+                                
+                                <div class="answer"></div>
+                              
+                          </div>
+                      </div><!-- end message 2-->
+                      <div class="message" data-message="message2">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>catherine@actu2424.be</li>
+                                  <li><strong>Sujet : </strong>Informations complémentaires</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">07/06/2015</p>
+                              
+                          </div>
+                          <div class="message-content">
+                              
+                              <p>Bonjour Mr. Dorner,<br />
+                                Rédactrice chez Actu 24/24, j’aimerais vous inviter à la rédaction afin de discuter avec vous et rédiger ainsi un article sur la triste disparition de votre fille.</p>
+                             <p>Vous devez sans doute être au courant des dernières rumeurs qui circulent à votre sujet et je souhaiterais vous offrir la possibilité de vous expliquer face à nos lecteurs.</p>
+                             <p>Merci de me donner votre réponse au plus vite afin que nous puissions fixer une date de rendez-vous. <br />Bien à vous,<br />
+</p>
+                             <p>Catherine Redoux.<br />
+                                Rédactrice Actu 24/24</p>
+                                
+                                <div class="answer"></div>
+                              
+                          </div>
+                      </div><!-- end message 3 -->
+                      <div class="message" data-message="message3">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>leslie.f@gmail.com</li>
+                                  <li><strong>Sujet :</strong>Ta faute</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">06/06/2015</p>
+                              
+                          </div>
+                          <div class="message-content">
+                              
+                              <p>Non mais pour qui tu te prends ????!<br />
+                                Tout ça c'est de TA FAUTE !</p>
+                             <p>Tu as fichu ta vie en l'air et tu as emporté ta famille dans ta chute. Et maintenant, regarde le résultat ! Tu te confonds en bonnes paroles pour retrouver Clara mais au final, ça ne m'étonnerait même pas que tu la détiennes quelque part afin d'enfoncer Rachelle encore plus. Tu as l'esprit assez sadique pour ça, il suffit de lire tes "bouquins" à la con. Ces saloperies écrites sur du PQ.</p>
+                             <p>Espèce de monstre, j'espère que l'on retrouvera Clara et que l'on t'enfermera. Je ferai tout pour te faire tomber ! Montre ça à la police, je m'en moque. C'est plutôt toi qu'ils devraient craindre. Restes loin de Rachelle. Connard. 
+</p>
+                             
+                                
+                                <div class="answer"></div>
+                              
+                          </div>
+                      </div><!-- end message 3-->
+                      <div class="message" data-message="message4">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>Rachelle.sinclair@gmail.com	</li>
+                                  <li><strong>Sujet : RE :</strong>A quoi tu joues ?</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">05/06/2015</p>
+                              
+                          </div>
+                          <span class="indesirable">Marqué comme indésirable</span>
+                          <div class="message-content">
+                             
+                              <p>Yann...</p>
+                              <p>Je ne te comprends pas... Cela fait 20 jours que nous n'avons plus de nouvelles de Clara et j'ai l'impression que tu ne cherches même pas à la retrouver ! C'est notre fille, Yann. Arrêtes de faire semblant, pose cette fichue bouteille et comporte toi comme un père devrait se comporter ! Je retourne la terre entière pour retrouver Clara et je le fais seule, tu trouves cela normal ?
+Pourquoi tu ne participes pas aux recherches ? Que fais-tu toute tes journées ? 
+</p>
+                             <p>Il y a de sales rumeurs sur toi en ce moment et j'ai déposé une plainte à la police. Si je ne peux pas te surveiller, eux le feront. 
+</p>
+                                
+                                <div class="answer"></div>
+                              
+                          </div>
+                      </div><!-- end message 4-->
+                       <div class="message" data-message="message5">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>press@polarpocket.com</li>
+                                  <li><strong>Sujet : </strong>Edition de poche</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">05/06/2015</p>
+                              
+                          </div>
+                          <div class="message-content">
+                             
+                              <p>Mr Dorner,<br />
+                                Comme prévu, voici une prévisualisation de la 4ème de couverture de la ré-édition de votre livre à succès. </p>
+                             <p>Malgré les évènements, nous avons besoin de votre aval sur la biographie pour pouvoir lancer les impressions.</p>
+                               <p>Merci d’avance,<br>
+                                  M. Lantier.</p>
+                                  
+                                  <hr>
+                                  
+                                  <a href="#" class="joint" data-window="brouillard">
+                                      <figure>
+                                          <img src="../assets/img/meta/brouillard-dos.jpg" alt="dos-brouillard">
+                                          <figcaption>Fichier lié - dos.pdf - 1.1mo</figcaption>
+                                      </figure>
+                                  </a>
+                                
+                                <div class="answer"></div>
+                              
+                          </div>
+                      </div><!-- end message 5-->
+                      <div class="message" data-message="message6">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>Josh@litag.com</li>
+                                  <li><strong>Sujet : </strong>Date de livraison URGENT !!!!</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">04/06/2015</p>
+                              
+                          </div>
+                          <div class="message-content">
+                             
+                              <p>Yann...<br />
+                                Ca fait 2 jours que j'essaye de t'appeler, pourrais-tu décrocher ce foutu téléphone une seule fois dans ta vie ?</p>
+                             <p>Écoute, je sais ce qu'il se passe en ce moment et que ce n'est pas facile, ce qui est bien entendu normal, mais…  Tu as fait le choix de continuer l'écriture après ta rupture avec Rachelle alors que, je t'avais pourtant conseillé de prendre des vacances, un peu de distance avec tes livres mais tu n'en fait qu'à ta tête. Il faut assumer maintenant, quoi qu’il arrive, tu n'as pas le choix.</p>
+                              <p>La boîte aimerais savoir où tu en es avec les chapitres que tu étais censé livrer la semaine dernière. Le contrat nous échappe Yann et tu me payes pour que ça n'arrive pas alors bouges-toi !</p>
+                               <p>Et bordel, décroche ce foutu téléphone !</p>
+                               <p>Josh.</p>
+                                  
+                                
+                                <div class="answer"></div>
+                              
+                          </div>
+                      </div><!-- end message 6-->
+                      <div class="message" data-message="message7">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>max32@gmail.com</li>
+                                  <li><strong>Sujet : </strong>C‘est quoi ce bordel ?????</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">04/06/2015</p>
+                              
+                          </div>
+                          <div class="message-content">
+                             
+                              <p>Salut Yann, tu vas bien ?<br />
+                               J'ai participé aux recherches hier pour tenter de retrouver Clara. Je pensais t'y retrouver mais tu as, je pense, assez de soucis à régler comme cela. Juste pour dire que Rachelle était là, elle veut organiser une marche dans l'espoir de toucher le type qui a fait ça. L'info circule en ce moment, tu comptes y participer ? </p>
+                             <p>Elle a parlé de toi, du fait que tu as été, ces dernières années, un père négligeant… de tes soucis avec l’alcool et de ton comportement. Elle a aussi précisé que la police était sur ton dos… T’aurais quelque chose à voir là-dedans.</p>
+                              <p>Non mais, c’est vrai ces conneries ? Je pense que tu devrais faire taire ces rumeurs, faudrait pas que ça se retourne contre toi... Donne moi des nouvelles quand tu peux !</p>
+                               <p>Courage,</p>
+                               <p>Max</p>
+                                  
+                                
+                                <div class="answer"></div>
+                              
+                          </div>
+                      </div><!-- end message 7-->
+                      <div class="message" data-message="message8">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>william-stoolverman@gmail.com</li>
+                                  <li><strong>Sujet : </strong>Dossier</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">03/06/2015</p>
+                              
+                          </div>
+                          <div class="message-content">
+                             
+                              <p>Bonjour Mr. Dorner,</p>
+                              <p>Comme vous me l’avez demandé, voici le dossier presse de l’enquête en cours. Tous les documents à l’intérieur sont des dossiers privés, généralement accessibles pour les services internes. Étant directement impliqué dans cette affaire, compte tenu de votre statut, je pense que vous m’en devez une.</p>
+
+                            <p>Passez néanmoins une bonne semaine et surtout : accrochez-vous ! Je vais voir avec le bureau ce que je peux faire pour qu'on arrête de vous appeler.</p>
+
+                            <p>Will</p>
+                                
+                                <hr>
+                                    
+                                <a href="#" data-window="rapport-enquete">
+                                      <figure>
+                                          <img src="../assets/img/desktop/icon-pdf.png" alt="rapport-enquete">
+                                          <figcaption>Fichier lié - rapp_cc2115.pdf - 2.4mo</figcaption>
+                                      </figure>
+                                  </a>  
+                                
+                                <div class="answer"></div>
+                              
+                          </div>
+                      </div><!-- end message 8-->
+                      <div class="message" data-message="message9">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>yourtaxrefund@InternalRevenueService.com</li>
+                                  <li><strong>Sujet : </strong>Get your tax refund now</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">03/06/2015</p>
+                              
+                          </div>
+                          <span class="indesirable">Marqué comme indésirable</span>
+                          <div class="message-content">
+                             
+                              <p>After the last annual calculations of your account activity we have determined that
+                                you are eligible to receive a tax refund of $479.30 .
+                                Please submit the tax refund request and allow us 2-6 days in order to
+                                process it.</p>
+                              <p>A refund can be delayed for a variety of reasons. For example submitting invalid records or applying after the deadline.</p>
+                              
+                              <p>To access the form for your tax refund, please <a href="#">click here.</a></p>
+
+                            <p>Note: Deliberate wrong inputs will be prosecuted by law.</p>
+                            
+                            <p>Regards,<br>
+                            Internal Revenue Service</p>
+                              
+                          </div>
+                      </div><!-- end message 9-->
+                       <div class="message" data-message="message10">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>catherine-vermuyten@skynet.be</li>
+                                  <li><strong>Sujet : </strong>Ton téléphone</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">01/06/2015</p>
+                              
+                          </div>
+                          <div class="message-content">
+                             
+                              <p>Salut chéri, dis…  tu pourrais répondre au téléphone, je n'aime pas trop utiliser l'ordinateur et ton gsm est souvent occupé...On pourrait peut-être passer chez toi cette semaine ?</p>
+                              <p>Courage !</p>
+                              
+                              <div class="answer"></div>
+                              
+                          </div>
+                      </div><!-- end message 10-->
+                      <div class="message" data-message="message11">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>Josh@litag.com</li>
+                                  <li><strong>Sujet : </strong>Gaffe aux menaces !!!</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">30/04/2015</p>
+                              
+                          </div>
+                          <div class="message-content">
+                             
+                              <p>Salut Yann,<br />
+                                Je sais que tu n'aimes pas trop recevoir ce genre de chose, mais je pense que cela devrait accaparer ton attention. J'ai trié pas mal de tes courriels de fans et j'en ai ressorti quelques-uns pour lesquels il faudrait faire quelque chose. Tu as reçu des menaces et je pense qu'il serait urgent de prévenir la police et porter plainte ou du moins, les avertir. On n'est jamais trop prudent, même si, en général, ce ne sont que des mots… Blessants.</p>
+                             <p>Écoute, je sais ce qu'il se passe en ce moment et que ce n'est pas facile, ce qui est bien entendu normal mais tu as fait le choix de continuer l'écriture après ta rupture avec Rachelle alors que je t'avais pourtant conseillé de prendre des vacances, un peu de distance avec tes livres mais tu n'en fait qu'à ta tête. Il faut assumer maintenant, tu n'as pas le choix.</p>
+                              <p>Je t’envois tout ça par la poste.</p>
+                               <p>Prends soin de toi,</p>
+                               <p>Josh.</p>
+                                  
+                                
+                                <div class="answer">
+                                    <p>Salut Josh,</p>
+                                    <p>Je sais bien que mon style ne peut plaire à tout le monde et je ne pense pas</p>
+                                    <p>que ces lettres sont sérieuses... Écoute, je verrai bien et je ferai en fonction</p>
+                                    <p>des lettres. Si vraiment tu penses que certaines doivent être prises au sérieux</p>
+                                    <p>et bien je préviendrai la police. J'attends ton colis,</p>
+                                    <p>Yann.</p>
+                                </div>
+                              
+                          </div>
+                      </div><!-- end message 11-->
+                      <div class="message" data-message="message12">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>michel@costa.com</li>
+                                  <li><strong>Sujet : </strong>Mon argent</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">28/04/2015</p>
+                              
+                          </div>
+                          <div class="message-content">
+                             
+                              <p>Yann,<br />
+                                  C'est Mich' du Costa. Tu ne réponds pas au téléphone, du coup, je me suis permis de t'envoyer ce mail. J'attends toujours que tu viennes me payer ta dernière consommation.</p>
+                                  <p>Effectivement, tu n'étais pas vraiment en état de compter ce soir-là mais je t'ai aussi avancé le taxi. Je suis monté jusque chez toi deux fois la semaine dernière et tu n'as pas ouvert. Ne m'oblige pas à aller régler ça avec la Police et à te rayer de nos soirées Poker.<br />
+ J'ai encore les tickets et le compte de ma caisse. 
+</p>
+                                <p>Michel.</p>
+
+                                  
+                                
+                                <div class="answer">
+                                    <p>Michel,</p>
+                                    <p>Pardon, j'ai complétement oublié... J'étais pas très bien ces derniers jours.</p>
+                                    <p>J'étais dans mon atelier, je n'ai pas dû d'entendre.</p>
+                                    <p>Je repasse ce soir, avec l'argent et un petit supplément pour me faire pardonner.</p>
+                                    <p>Yann.</p>
+                                </div>
+                              
+                          </div>
+                      </div><!-- end message 12-->
+                      <div class="message" data-message="message13">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>Josh@litag.com</li>
+                                  <li><strong>Sujet : </strong>Tendances trimestrielles</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">27/04/2015</p>
+                              
+                          </div>
+                          <div class="message-content">
+                             
+                              <p>Yann,<br />
+                                Je t'envoie ce message pour te faire part des dernières tendances trimestrielles en terme de genre romancier auprès de la clientèle. Tu sais comment ça fonctionne, voici la liste. A toi de voir.</p>
+                             <p>1.	Thrillers policiers<br />
+                                2.	Romance (jeunesse) - NE FAIS PAS CA. <br />
+                                3.	Thrillers fantastiques - On doit en rediscuter<br />
+                                4.	Biographies<br />
+                                5.	Romans historiques<br />
+                            </p>
+                              
+                               <p>Josh.</p>
+                                  
+                                
+                                <div class="answer">
+                                    <p>Salut Josh,</p>
+                                    <p>J'ai bien prit connaissance de ta liste et je t'en remercie.</p>
+                                    <p>Après mûre réflexion, j'a décidé de m'essayer au genre romance jeunesse.</p>
+                                    <p>Je t'envoie mes essais rapidement, tu vas A-D-O-R-E-R</p>
+                                </div>
+                              
+                          </div>
+                      </div><!-- end message 13-->
+                      <div class="message" data-message="message14">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>Rachelle.sinclair@gmail.com	</li>
+                                  <li><strong>Sujet</strong>Un coeur là dessous ?</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">25/04/2015</p>
+                              
+                          </div>
+                          <div class="message-content">
+                             
+                              <p>Bonjour Yann,<br />
+                                Je ne sais pas si tu vas lire ce mail étant donné que l'on s'évite comme la peste et que tu refuses encore de me répondre lorsque tu vois mon nom s'afficher sur le téléphone, mais soit. Ici il n'y aura pas de mots haineux, rien de tout cela. Je voulais juste te remercier pour avoir emmené Clara à Disneyland durant ces trois jours. Je n'en avais pas les moyens pour l'instant et cela faisait un bon moment qu'elle m'en parlait.</p>
+                                <p>Elle est revenue très heureuse de son séjour et je l'ai été aussi de voir que tu savais encore prendre soin de ta fille, lorsque tu parvenais à écarter tes bouquins ou ta bouteille pendant quelques jours.</p>
+                                <p>Tu as gagné des points auprès d'elle,<br /> 
+Rachelle
+</p>
+                                
+                                <div class="answer">
+                                    <p>Comme quoi... Je reste son père et même si</p>
+                                    <p>je peux paraître être un gros connard, j'ai bien un coeur là dessous.</p>
+                                    <p>Essaye de t'en souvenir.</p>
+                                </div>
+                              
+                          </div>
+                      </div><!-- end message 14-->
+                      <div class="message" data-message="message15">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>harry.ns@gmail.com</li>
+                                  <li><strong>Sujet :</strong>Alsace</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">22/04/2015</p>
+                              
+                          </div>
+                          <div class="message-content">
+                              
+                              <p>Bonjour Yann,<br />
+                                Comment vas-tu ? Je me doute que ça doit pas trop être la forme en ce moment mais voilà, Flo' et moi avons réservé un chalet en Alsace. C'est à Gérardmer, dans les Vosges. On y était déjà allés quelques temps après le mariage et l'on s'est dit que ça serait sympa si tu pouvais venir avec nous. </p>
+                             <p>Nous y restons deux semaines et il y a une chambre en trop. Libre à toi de n'y rester que quelques jours, mais ça nous ferait vraiment plaisir et ça pourrait aussi te permettre de te changer les idées et de te ressourcer. T'en as vraiment besoin, au diner t'avais une mine de cadavre. 
+</p>
+                             <p>Dis-moi quoi rapidement.<br />
+                                Harry.</p>
+                                
+                                <div class="answer">
+                                    <p>Salut Harry !</p>
+                                    <p>Merci pour ton invitation mais je suis dans l'obligation de décliner.</p>
+                                    <p>Je suis en retard pour boucler mon dernier roman et je n'arrive pas à my mettre.</p>
+                                    <p>Oui, c'est pas la forme mais tu sais pourquoi. Clara vient à la maison bientôt,</p>
+                                    <p>j'essayerai d'organiser un truc sympa avec elle.</p>
+                                    <p>Allez, passez un bon séjour en Alsace et profitez bien !</p>
+                                    <p>Bonjour à Flo, comme d'hab, Yann.</p>
+                                </div>
+                              
+                          </div>
+                      </div><!-- end message 15-->
+                      <div class="message" data-message="message16">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>contact@lapage.be</li>
+                                  <li><strong>Sujet :</strong>rencontre "Fan-auteur"</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">17/04/2015</p>
+                              
+                          </div>
+                          <div class="message-content">
+                              
+                              <p>Monsieur Dorner,<br />
+                                Faisant suite à un précédent message envoyé à votre agent, je vous transmet ainsi notre invitation. Nous aimerions organiser une rencontre "Fan-auteur" au sein de notre établissement à Jemeppe. Nous possédons un étage que nous pouvons parfaitement bien aménager pour ce type de rencontre et nous pouvons aussi nous occuper de la campagne de communication avec votre agent. Le but est de promouvoir un écrivain belge de talent, mais aussi et surtout, votre dernier livre qui continue, malgré l'ancienneté, d'accaparer la une de nombreux journaux. 
+</p>
+                              <p>Merci de prendre contact avec notre établissement accessible à ce numéro : +32/2164891621.</p>
+                                
+                                
+                                <div class="answer">
+                                    <p>Madame Guyon,</p>
+                                    <p>C'est avec un grand plaisir que j'accepte votre invitation.</p>
+                                    <p>Est-ce que je peux vous appeler ce soir afin de mettre en place </p>
+                                    <p>les différentes modalités et organiser une entrevue avec mon agent ?</p>
+                                    <p>Merci beaucoup pour cette invitation, je suis flatté.</p>
+                                    <p>Amicalement,</p>
+                                    <p>Yann Dorner</p>
+                                </div>
+                              
+                          </div>
+                      </div><!-- end message 16-->
+                      <div class="message" data-message="message17">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>marc@believe-std.com</li>
+                                  <li><strong>Sujet :</strong>Attestation réception </li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">17/04/2015</p>
+                              
+                          </div>
+                          <div class="message-content">
+                              
+                              <p>Monsieur Dorner,<br />
+                                Nous attestons la réception des chapitres 4 et 5 de « Hors du temps ». Ces chapitres seront traités dans nos services sous peu et nous vous ferons part de notre processus. 
+</p>
+                              <p>Merci de prendre contact avec notre chargé de communication si vous rencontrez un quelconque problème.</p>
+                               <p>Bonne semaine,</p>
+                               <p>Marc, responsable presses Believe STD</p>
+                                
+                                
+                                
+                              
+                          </div>
+                      </div><!-- end message 17-->
+                      <div class="message" data-message="message18">
+                          <div class="message-infos">
+                             
+                              <ul class="message-subject">
+                                  <li><strong>de :</strong>camille.sevier@gmail.com</li>
+                                  <li><strong>Sujet :</strong>Séjour avec Clara</li>
+                              </ul>
+                              
+                              <ul class="navigation">
+                                  <li><a href="#">Répondre</a></li>
+                                  <li><a href="#">Transférer</a></li>
+                                  <li><a href="#">Supprimer</a></li>
+                              </ul>
+                              
+                              <p class="date">12/04/2015</p>
+                              
+                          </div>
+                          <div class="message-content">
+                              
+                              <p>Yann,</p>
+                              <p>Désolé de t'importuner par mail, mais mon téléphone est HS depuis avant-hier... Je sais très bien que le week-end prochain, tu as la garde de Clara. Cependant, avec Laurent, nous aimerions l'emmener au cinéma pour qu'elle puisse assister à l'avant-première du dessin animé dont elle parle tant depuis quelques jours. Ses héros préférés seront présent -en costume ! Oui, je sais, il y aura pas mal de goodies que je me ferai un plaisir de lui acheter.</p>
+                              <p>C'est juste pour la soirée. Elle dormirait à la maison et je te la ramènerais le lendemain matin. C'est une surprise et j'attends juste ta réponse pour réserver nos places. Il ne reste plus beaucoup de temps, ça part très (trop) vite…  donc si tu pouvais me faire le plaisir de répondre genre, là, tout de suite, ça serait cool.</p>
+                              <p>Merci,<br /> 
+                                  Camille</p>
+                                  
+                            
+                                <div class="answer">
+                                    <p>Salut Camille,</p>
+                                    <p>Pas de soucis, si tu veux prendre Clara pour le cinéma.</p>
+                                    <p>Elle sera très contente j'en suis certain, étant</p>
+                                    <p>donné qu'elle n'arrête pas de parler de ce dessin animé !</p>
+                                    <p>Tu peux passer à la maison si tu veux qu'on s'arrange (pour le déplacement, etc.)</p>
+                                    <p>Yann.</p>
+                                </div>
+
+                                
+                                
+                                
+                              
+                          </div>
+                      </div><!-- end message 17-->
+                  </section>
+               </div>
+           </div>
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window mail -->
+       
+   </div>
+   <!-- End Desktop -->  
+
+   
+   
+   <script src="../assets/js/jquery.min.js"></script>
+   <script src="../assets/js/jquery-ui.min.js"></script>
+   <script src="../assets/js/typed.min.js"></script>
+   <script src="../assets/js/main.js"></script>
+   <script>
+       
+       $(window).load(function() {
+          $('.loader').fadeOut("slow"); 
+          $('.tuto').show();
+          
+       });
+              
+        /*$(window).load(function() {
+	      setTimeout( function() {
+              $(".loader").fadeOut("slow");
+              $('.tuto').show();
+          },6000);
+        });*/
+       
+    </script>
+</body>
+</html>
