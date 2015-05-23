@@ -1,5 +1,6 @@
 $(function(){
     
+    // video 1
     var video = $('.video-intro video'),
         tuto = localStorage.getItem("tuto");
     $('.video-intro').hide();
@@ -33,5 +34,7 @@ $(function(){
         $('.video-intro').remove();
         $('#start').attr('href', 'desktop/index.html');
     }
+    
+    
     
 });

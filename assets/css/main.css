@@ -434,7 +434,8 @@ nav ul li a {
 }
 /* ================================================== */
 
-.video-intro {
+.video-intro,
+.video-fin {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -454,7 +455,8 @@ nav ul li a {
     z-index: 99999;
 }
 
-.video-intro span {
+.video-intro span,
+.video-fin span {
     position: absolute;
     z-index: 99999;
     color: rgba(255,255,255,.2); 
@@ -463,26 +465,61 @@ nav ul li a {
             transition: all .4s ease-out; 
 }
 
-.video-intro .fermer { bottom: 25px; right: 25px; }
-.video-intro .passer { bottom: 25px; right: 100px; }
-.video-intro span a { 
+.video-intro .fermer,
+.video-fin .fermer { bottom: 25px; right: 25px; }
+
+.video-intro .passer,
+.video-fin .passer  { bottom: 25px; right: 100px; }
+
+.video-intro span a,
+.video-fin span a { 
     color: rgba(255,255,255,.2); 
     font-size: 12px; font-size: 1.2rem; 
     -webkit-transition: all .4s ease-out; 
             transition: all .4s ease-out; 
 }
 
-.video-intro span a:hover { text-decoration: none; color: rgba(255,255,255,1); }
+.video-intro span a:hover,
+.video-fin span a:hover { text-decoration: none; color: rgba(255,255,255,1); }
 
-@media all and (max-height: 690px ) {
-    .video-intro { height: auto;}
+
+#play-video {
+    display: block;
+    width: 167px;
+    height: 44px;
+    background: url(../img/website/video-button.png) no-repeat;
+    margin: auto;
+    text-indent: -999px;
 }
+
+    #play-video:hover { background-position: 0 -45px; }
 
 
 
 /* ================================================== */
 
-@media all and (max-height: 800px) {
+.ending {
+    background: url(../img/website/background-end.jpg) no-repeat fixed center/cover;
+}
+
+.ending section { background: url(../img/diary/background-entry.png) no-repeat; overflow: hidden;}
+.ending #logo { margin: 0; }
+.ending #logo a { width: 426px; height: 126px; left: 0; }
+
+#ending_article {
+  display: block;
+  width: 600px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 128px;
+  margin: auto;
+
+}
+/* ================================================== */
+
+@media all and (max-width: 1280px) {
     
     #start { margin: 40px auto;}
     .main-site,
@@ -500,6 +537,12 @@ nav ul li a {
     #diary h2 { margin-top: 120px; }
     
     footer { max-width: 660px; padding: 15px; }
+    
+        
+    #ending_article { bottom: -40px !important; }
+    
+    .ending { height: auto; }
+    .ending .section { padding-bottom: 150px; }
     
 }
 

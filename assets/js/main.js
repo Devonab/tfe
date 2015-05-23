@@ -827,7 +827,17 @@ $(function(e){
             var $value = $(this).find(':selected').val();
             document.execCommand( $(this).data('func'), false, $value);
           });
+    
+// -------------------------------------------
 
+    
+$('.window-archive[data-window="archive-livres"] tr ').click(function() {
+    
+    if( !$(this).is( ":first-child" ) ) {
+        $('.window-archive[data-window="archive-livres"] tr').removeClass('clicked');
+        $(this).addClass('clicked');
+    }
+});
         
     
 // -------------------------------------------
@@ -1075,9 +1085,14 @@ $('.desktop').click(function(e){
           firstEnigma(e);
         };
     });
+    
+    $('#bressier a, #teller a').click(function(){ return false; });
+
         
     $(document).ajaxComplete(function() {
-    
+        
+        $('#bressier a, #teller a').click(function(){ return false; });
+        
         // Second enigma
         $('.second-enigma').each(function(e){
             $('.window[data-window="internet"] .toolbar h3').html('Balade romantique - Navigateur internet');
