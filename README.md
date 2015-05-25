@@ -4,11 +4,6 @@ Travail de fin d'étude porté sur le thème de la narration où l'utilisateur s
 
 ESIAJ - [DWM](https://dwm.re/) 2015.
 
-## Changelog
-
-Version | Notes
-------- | ---------------
-`0.1` | Initial version
 
 ## Credits
 
