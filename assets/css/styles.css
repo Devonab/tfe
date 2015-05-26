@@ -355,7 +355,7 @@ a, a:active, a:focus { outline: none; }
         .dock ul li:nth-child(2) a { background: url(../img/desktop/explorer-icon.png) no-repeat center top; }
         .dock ul li:nth-child(3) a { background: url(../img/desktop/internet-icon.png) no-repeat center top; }
         .dock ul li:hover { background: #95929b; }
-        .dock-item--open { border-bottom: 5px solid #fff; background: #827f89; }
+        .dock-item--active { border-bottom: 5px solid #fff; background: #827f89; }
         .dock-item--minimized { border-bottom: 5px solid #fff; }
         .dock-item-pdf a { background: url(../img/desktop/dock-icon-pdf.png) no-repeat center top; }
         .dock-item-ar a { background: url(../img/desktop/dock-icon-archive.png) no-repeat center top; }
@@ -365,7 +365,7 @@ a, a:active, a:focus { outline: none; }
         .dock-item-folder a { background: url(../img/desktop/icon-folder.png) no-repeat center top; }
         .little-app,
         .little-app a { width: 45px !important; }
-        .litte-app a span { display: block; overflow: hidden; top: 48px !important; }
+        /*.litte-app a span { display: block; overflow: hidden; top: 48px !important; }*/
 
         .new-mail { 
             position: absolute;
@@ -555,6 +555,24 @@ a, a:active, a:focus { outline: none; }
 .pdf-bottom ul li:last-child a { background-position: -17px 0; }
 .pdf-bottom ul li:nth-child(2) { margin: 0 10px; }
 
+
+/* ================================================== */
+/* rapport enquete                                    */
+/* ================================================== */
+
+.window[data-window="rapport-enquete"] { width: 563px; height: 855px; top: 4%; left: 34%; } 
+.window[data-window="rapport-enquete"] .toolbar { height: 31px;}
+.window[data-window="rapport-enquete"] .windowbody { padding-top: 31px;}
+
+.window[data-window="rapport-enquete"] .window-container { position: relative; }
+
+.window[data-window="rapport-enquete"] .window-container div { 
+    position: absolute;
+    width: 100%;
+}
+
+
+.window[data-window="rapport-enquete"] .window-container div img {  max-width: 100%; height: auto; padding-bottom: 26px; }
 /* ================================================== */
 /* Document word                                      */
 /* ================================================== */
@@ -2221,12 +2239,14 @@ label {
         width: 1033px;
         height: 538px
     }
+    
     .window[data-window="chapitre-6"],
     .window[data-window="leviathan"] { top: 6%; left: 11%; }
     .window[data-window="article_contresens"] { width: 709px; height: 534px; left: 25%; }
     .window[data-window="critique_contresens"] { width: 707px; height: 508px; left: 25%; top: 8%; }
     
     .window[data-window="correct_epreuve"] { width: 410px;height: 540px; top: 5%; left: 35%; }
+    .window[data-window="rapport-enquete"] { width: 513px; height: 560px;}
     
     .window[data-window="alsace-1"],
     .window[data-window="alsace-2"],

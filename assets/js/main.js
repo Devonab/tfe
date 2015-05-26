@@ -11,7 +11,7 @@ function UploadClock( ) {
 };
 
 
-$(document).ready(function(){
+$(function(){
 
     
     
@@ -182,53 +182,7 @@ $(function(e){
         $('#notif').removeClass('notif-pop');
     });
 
- // ------------------------------------------- 
-    $('.toolbar ul').each(function() {
-        var window = $(this).closest('.window'); 
-        
-        $(this).find('a').click(function(e) {
-            e.preventDefault();
-        });
-        
-        $(this).find('.window-close-button').click(function(e) {
-            
-            $(window).addClass('window-closed');
-            
-            setTimeout(function(){
-                $(window).hide()
-                $(window).removeClass('window-active');
-            },300);
-            
-            var dockWidth = $('.dock').width(),
-                windowName = $(window).data('window');
-            
-            $('.dock ul li a[data-window="'+ windowName + '"]').parent().removeClass('dock-item--open');
-            $('.dock ul li a[data-window="'+ windowName + '"]').parent().removeClass('dock-item--minimized');
-            
-            $('.dock ul .litte-app a[data-window="'+ windowName + '"]').each(function(){
-                $('.dock ul .litte-app a[data-window="'+ windowName + '"]').parent().remove();
-                $('.dock').width(dockWidth-72);
-            });
-            
-            
-        });
-        
-        // remove dock icon for links and desktop softwares.
-        $(this).find('.window-minimize-button').click(function(e) {
-            $(window).addClass('window-minimized');
-            
-            var windowName = $(window).data('window');
-            $('.dock ul li a[data-window="'+ windowName + '"]').parent().removeClass('dock-item--open');
-            $('.dock ul li a[data-window="'+ windowName + '"]').parent().addClass('dock-item--minimized');
-            
-        });
-        
-        $(this).find('.window-maximize-button').click(function(e) {
-            $(window).toggleClass('window-maximized');
-            
-        });
-        
-    });
+ 
     
 // -------------------------------------------
 // Emails.
@@ -484,8 +438,10 @@ $(function(e){
     
 // -------------------------------------------
 // Brouillard-navigation.
-// -------------------------------------------
-    $('.pdf-bottom ul li:nth-child(2)').text('1/4');
+// -------------------------------------------    
+
+$('.window[data-window="correct_epreuve"]').each(function() {
+    $('.window[data-window="correct_epreuve"] .pdf-bottom ul li:nth-child(2)').text('1/4');
     $('.page').first().addClass('page-visible');  
     $('.page').hide();    
     $('.page-visible').show();
@@ -503,10 +459,10 @@ $(function(e){
         $('.page').hide();
         $('.page-visible').show();
         
-        if( $('#page1').is('.page-visible') ) { $('.pdf-bottom ul li:nth-child(2)').text('1/4'); };
-        if( $('#page2').is('.page-visible') ) { $('.pdf-bottom ul li:nth-child(2)').text('2/4'); };
-        if( $('#page3').is('.page-visible') ) { $('.pdf-bottom ul li:nth-child(2)').text('3/4'); };
-        if( $('#page4').is('.page-visible') ) { $('.pdf-bottom ul li:nth-child(2)').text('4/4'); };
+        if( $('#page1').is('.page-visible') ) { $('.window[data-window="correct_epreuve"] .pdf-bottom ul li:nth-child(2)').text('1/4'); };
+        if( $('#page2').is('.page-visible') ) { $('.window[data-window="correct_epreuve"] .pdf-bottom ul li:nth-child(2)').text('2/4'); };
+        if( $('#page3').is('.page-visible') ) { $('.window[data-window="correct_epreuve"] .pdf-bottom ul li:nth-child(2)').text('3/4'); };
+        if( $('#page4').is('.page-visible') ) { $('.window[data-window="correct_epreuve"] .pdf-bottom ul li:nth-child(2)').text('4/4'); };
 
     });
     
@@ -523,16 +479,71 @@ $(function(e){
         $('.page').hide();
         $('.page-visible').show();
         
-        if( $('#page1').is('.page-visible') ) { $('.pdf-bottom ul li:nth-child(2)').text('1/4'); };
-        if( $('#page2').is('.page-visible') ) { $('.pdf-bottom ul li:nth-child(2)').text('2/4'); };
-        if( $('#page3').is('.page-visible') ) { $('.pdf-bottom ul li:nth-child(2)').text('3/4'); };
-        if( $('#page4').is('.page-visible') ) { $('.pdf-bottom ul li:nth-child(2)').text('4/4'); };
+        if( $('#page1').is('.page-visible') ) { $('.window[data-window="correct_epreuve"] .pdf-bottom ul li:nth-child(2)').text('1/4'); };
+        if( $('#page2').is('.page-visible') ) { $('.window[data-window="correct_epreuve"] .pdf-bottom ul li:nth-child(2)').text('2/4'); };
+        if( $('#page3').is('.page-visible') ) { $('.window[data-window="correct_epreuve"] .pdf-bottom ul li:nth-child(2)').text('3/4'); };
+        if( $('#page4').is('.page-visible') ) { $('.window[data-window="correct_epreuve"] .pdf-bottom ul li:nth-child(2)').text('4/4'); };
         
             
     });
+});   
     
+// -------------------------------------------
     
+// -------------------------------------------
+// Enquete-navigation.
+// -------------------------------------------    
+
+$('.window[data-window="rapport-enquete"]').each(function() {
+    $('.window[data-window="rapport-enquete"] .pdf-bottom ul li:nth-child(2)').text('1/5');
+    $('.enq-page').first().addClass('pge-visible');  
+    $('.enq-page').hide();    
+    $('.pge-visible').show();
     
+
+    $('.pdf-bottom ul li:last-child a').click(function(){
+        $('.pge-visible').removeClass('pge-visible').addClass('pge-oldVisible');    
+            if ( $('.pge-oldVisible').is(':last-child')) {
+                $('.enq-page').first().addClass('pge-visible');
+            } else{
+                $('.pge-oldVisible').next().addClass('pge-visible');
+            }
+            
+        $('.pge-oldVisible').removeClass('pge-oldVisible');
+        $('.enq-page').hide();
+        $('.pge-visible').show();
+        
+        if( $('#pg1').is('.pge-visible') ) { $('.window[data-window="rapport-enquete"] .pdf-bottom ul li:nth-child(2)').text('1/5'); };
+        if( $('#pg2').is('.pge-visible') ) { $('.window[data-window="rapport-enquete"] .pdf-bottom ul li:nth-child(2)').text('2/5'); };
+        if( $('#pg3').is('.pge-visible') ) { $('.window[data-window="rapport-enquete"] .pdf-bottom ul li:nth-child(2)').text('3/5'); };
+        if( $('#pg4').is('.pge-visible') ) { $('.window[data-window="rapport-enquete"] .pdf-bottom ul li:nth-child(2)').text('4/5'); };
+        if( $('#pg5').is('.pge-visible') ) { $('.window[data-window="rapport-enquete"] .pdf-bottom ul li:nth-child(2)').text('5/5'); };
+
+    });
+    
+
+    $('.pdf-bottom ul li:first-child a').click(function(){
+        $('.pge-visible').removeClass('pge-visible').addClass('pge-oldVisible');    
+        if ( $('.pge-oldVisible').is(':first-child')) {
+            $('.enq-page').last().addClass('pge-visible');
+        } else{
+            $('.pge-oldVisible').prev().addClass('pge-visible');
+        }
+        
+        $('.pge-oldVisible').removeClass('pge-oldVisible');
+        $('.enq-page').hide();
+        $('.pge-visible').show();
+        
+        if( $('#pg1').is('.pge-visible') ) { $('.window[data-window="rapport-enquete"] .pdf-bottom ul li:nth-child(2)').text('1/5'); };
+        if( $('#pg2').is('.pge-visible') ) { $('.window[data-window="rapport-enquete"] .pdf-bottom ul li:nth-child(2)').text('2/5'); };
+        if( $('#pg3').is('.pge-visible') ) { $('.window[data-window="rapport-enquete"] .pdf-bottom ul li:nth-child(2)').text('3/5'); };
+        if( $('#pg4').is('.pge-visible') ) { $('.window[data-window="rapport-enquete"] .pdf-bottom ul li:nth-child(2)').text('4/5'); };
+        if( $('#pg5').is('.pge-visible') ) { $('.window[data-window="rapport-enquete"] .pdf-bottom ul li:nth-child(2)').text('5/5'); };
+        
+            
+    });
+});       
+
 // -------------------------------------------
     
     
@@ -540,10 +551,10 @@ $(function(e){
         $('.window:visible').each(function() {
           var appName = $(this).data('window');
 
-         $('.dock ul li a[data-window="' + appName + '"]').parent().addClass('dock-item--open');
+         $('.dock ul li a[data-window="' + appName + '"]').parent().addClass('dock-item--active');
 
         if( $('.window[data-window="'+ appName +'"]').hasClass('window-closed') ) { 
-            $('.dock ul li a[data-window="' + appName + '"]').parent().removeClass('dock-item--open');
+            $('.dock ul li a[data-window="' + appName + '"]').parent().removeClass('dock-item--active');
             $('dock ul .litte-app a[data-window="'+appName+'"] span').remove();
         }else{}
 
@@ -574,80 +585,113 @@ $(function(e){
 
 
       if( $(this).hasClass('window-active') ) {
-          $('.dock ul li').removeClass('dock-item--open');
-          $(targetDock).addClass('dock-item--open');
+          $('.dock-item--active').removeClass('dock-item--active').addClass('dock-item--minimized');
+          $(targetDock).addClass('dock-item--active');
       }
       
-  });    
+  });   
+    
+// ------------------------------------------- 
+    $('.toolbar ul').each(function() {
+        var window = $(this).closest('.window'),
+            windowName = $(window).data('window');
+             
+        
+        $(this).find('a').click(function(e) {
+            e.preventDefault();
+        });
+        
+        $(this).find('.window-close-button').click(function(e) {
+            $(window).addClass('window-closed');
+            
+            
+            setTimeout(function(){
+                $(window).removeClass('window-active');
+                $('.dock ul li  a[data-window="'+ windowName + '"]').parent().removeClass('dock-item--active');
+            },300);
+            
+            var dockWidth = $('.dock').width();
+            
+            $('.dock ul li a[data-window="'+ windowName + '"]').parent().removeClass('dock-item--active');
+            $('.dock ul li a[data-window="'+ windowName + '"]').parent().removeClass('dock-item--minimized');
+            
+            $('.dock ul .litte-app a[data-window="'+ windowName + '"]').each(function(){
+                $('.dock ul .litte-app a[data-window="'+ windowName + '"]').parent().remove();
+                $('.dock').width(dockWidth-100);
+            });
+            
+            
+        });
+        
+        // remove dock icon for links and desktop softwares.
+        $(this).find('.window-minimize-button').click(function(e) {
+            $(window).removeClass('window-active');
+            $(window).addClass('window-minimized');
+            
+            var windowName = $(window).data('window');
+            $('.dock ul li a[data-window="'+ windowName + '"]').parent().removeClass('dock-item--active');
+            $('.dock ul li a[data-window="'+ windowName + '"]').parent().addClass('dock-item--minimized');
+            
+        });
+        
+        $(this).find('.window-maximize-button').click(function(e) {
+            $(window).toggleClass('window-maximized');
+        });
+        
+    });
 
-  
+// -------------------------------------------------------------------------------------   
+    
   function openSoftware(e) {
     var appName = $(this).data('window'),
         targetWindow = $('.window[data-window="' + appName + '"]'),
         targetDock = $('.dock ul li a[data-window="' + appName + '"]').parent(),
         target = $(e.target),
         dockWidth = $('.dock').width(),
+        currentClass = targetWindow.attr('class'),
         appDockName = $(this).find('span').text();
         
     e.preventDefault();
-      
     
-      
-    $('.dock ul li').removeClass('dock-item--minimized');
-    
-    if ( targetWindow.is(':visible') ) {
-
-      if ( targetWindow.hasClass('window-active') ) {
+    if( !target.parents().hasClass('mails-toolbar') && !target.parents().hasClass('message-infos') ) {  
         
-        $(targetWindow).removeClass('window-active');
-        $(targetWindow).toggleClass('window-minimized');
+        if( $(targetWindow).hasClass('window-closed') ) {
+            $('.window-active').removeClass('window-active');
+            $('.dock ul .dock-item--active').removeClass('dock-item--active').addClass('dock-item--minimized');
+            $(targetWindow).addClass('window-active').css({ 'z-index' : zIndex++ });
+            $(targetDock).addClass('dock-item--active');
 
-        if ( !targetWindow.hasClass('window-minimized') ) {
+            setTimeout(function() {
+                $('.window[data-window="' + appName + '"]').removeClass('window-closed');
+            }, 500);
             
-          $('.window').removeClass('window-active');
-          $(targetWindow).removeClass('window-closed');
 
-         $(targetWindow).addClass('window-active').css({ 
-            'z-index' : zIndex++
-          });
-          
-         $(targetDock).addClass('dock-item--open');
+        } else if ( $(targetWindow).hasClass('window-minimized') && $(targetDock).hasClass('dock-item--minimized') ) {
+            $('.window-active').removeClass('window-active');
+            $(targetWindow).removeClass('window-minimized').addClass('window-active').css({ 'z-index' : zIndex++ });
+            $(targetDock).removeClass('dock-item--minimized').addClass('dock-item--active');
+
+        } else if ( $(targetWindow).hasClass('window-active') && $(targetDock).hasClass('dock-item--active') ) { 
+            $('.window-active').removeClass('window-active');
+            $(targetWindow).removeClass('window-active').addClass('window-minimized');
+            $(targetDock).removeClass('dock-item--active').addClass('dock-item--minimized');
+
+        } else if ( !$(targetWindow).hasClass('window-active') && !$(targetWindow).hasClass('window-closed') && $(targetDock).hasClass('dock-item--minimized') ) {
+           $('.window-active').removeClass('window-active');
+           $('.dock ul .dock-item--active').removeClass('dock-item--active').addClass('dock-item--minimized');    
+           $(targetWindow).addClass('window-active').css({ 'z-index' : zIndex++ });
+           $(targetDock).removeClass('dock-item--minimized').addClass('dock-item--active');
         }
-      } else {
-        // open soft if it's closed
-        $('.window').removeClass('window-active');
-        $(targetWindow).addClass('window-active').removeClass('window-minimized').css({'z-index' : zIndex++});
-        $(targetDock).addClass('dock-item--open');
         
-        setTimeout(function() {
-            $('.window[data-window="' + appName + '"]').removeClass('window-closed');
-        }, 500);
-          
-      } 
-        // Add open state on dock icon.
-        
-        $(targetDock).removeClass('dock-item--open'); 
-        $(targetDock).toggleClass('dock-item--minimized');
-    } else {
-      
-      if( !target.parents().hasClass('mails-toolbar') && !target.parents().hasClass('message-infos') ) {
-          $('.window').removeClass('window-active');
-      }
-      
-      $('.window[data-window="' + appName + '"]').css({ 'z-index' : zIndex++ }).addClass('window-active').show();
-        
-      
-      setTimeout(function() {
-        $('.window[data-window="' + appName + '"]').removeClass('window-closed');
-        
-      }, 500);
-      
-      $(targetDock).addClass('dock-item--open');
     }
       
   };
     
-    $('a').dblclick(function(e){
+// -------------------------------------------------------------------------------------
+    
+   
+    
+    function openIcon(e){
       var appName = $(this).data('window'),
           targetWindow = $('.window[data-window="' + appName + '"]'),
           targetDock = $('.dock ul li a[data-window="' + appName + '"]').parent(),
@@ -655,71 +699,85 @@ $(function(e){
           dockWidth = $('.dock').width(),
           appDockName = $(this).find('span').text(),
           charCount = appDockName.split("",7),
-          fin = charCount.join("")+'...';
+          fin = charCount.join("")+'...',
+          filesDockName = $('.desktop').find('.window[data-window="'+appName+'"] .toolbar h3').text(),
+          HiddenLinkcharCount = filesDockName.split("",7),
+          HiddenLinkfin = HiddenLinkcharCount.join("")+'...';
         
-        if( !$(e.target).parents().hasClass('dock-item-internet') && 
-            !$(e.target).parents().hasClass('dock-item-explorer') &&            
-            !$(e.target).parents().hasClass('dock-item-mail') && 
-            !$(e.target).is('.tuto') &&
-            !$(e.target).parents().hasClass('.window-notes') &&
-            !$(e.target).hasClass('hidden-link') &&
-            !$(e.target).parent().hasClass('.tuto') &&
-            !$(e.target).parent().hasClass('.tuto2') ) {
-          
-          if ( $(e.target).parents().hasClass('folder-file-folder') || 
-              $(e.target).hasClass('folder-file-folder') || 
-              $(e.target).parents().hasClass('mails-toolbar') || 
-              $(e.target).parents().hasClass('navigation') ||
-              $(e.target).parents().hasClass('pdf-window') ||
-              $(e.target).parents().hasClass('navigation-actions') ) {
+        e.preventDefault();
               
-          } else {
+        if( $(targetWindow).hasClass('window-closed') ) {
+            
+            $('.window').removeClass('window-active');
+            $(targetWindow).removeClass('window-closed').addClass('window-active').css({'z-index' : zIndex++});;
+            
+        }
+              
               
               if( $('.dock ul li a[data-window="' + appName + '"]' ).length === 0  ) {
-                   $('.dock').width(dockWidth + 78);
+                   $('.dock').width(dockWidth + 100);
+                   $('.litte app').removeClass('dock-item--active');
+                  
                    if( $(e.target).hasClass('pdf') ) {
-                       $('.dock ul').append('<li class="litte-app dock-item-pdf"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
-                   }
-                   if( $(e.target).parents().hasClass('joint') ) {
-                       $('.dock ul').append('<li class="litte-app dock-item-pdf"><a href="#" data-window="'+appName+'"><span>dos.pdf</span></a></li>');
-                   }
-                   if( $(e.target).hasClass('doc')  ) {
-                       $('.dock ul').append('<li class="litte-app dock-item-word"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
-                   }
-                   if( $(e.target).hasClass('folder')  ) {
-                       $('.dock ul').append('<li class="litte-app dock-item-folder"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
-                   }
-                  if( $(e.target).hasClass('enquete') ) {
-                       $('.dock ul').append('<li class="litte-app dock-item-folder"><a href="#" data-window="'+appName+'"><span>'+appDockName+'</span></a></li>');
-                   }
-                   if( $(e.target).children().hasClass('word-icon') || $(e.target).parents().hasClass('word-icon') || $(e.target).hasClass('word-icon') || $(e.target).hasClass('fill-name') ) {
-                       $('.dock ul').append('<li class="litte-app dock-item-word"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
-                   }
-                   if( $(e.target).children().hasClass('img-icon') || $(e.target).parents().hasClass('img-icon') || $(e.target).hasClass('img-icon') ) {
-                       $('.dock ul').append('<li class="litte-app dock-item-img"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
-                   }
-                  if( $(e.target).children().hasClass('note-icon') || $(e.target).parents().hasClass('note-icon') || $(e.target).hasClass('note-icon') ) {
-                       $('.dock ul').append('<li class="litte-app dock-item-notes"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
-                   }
-                  if( $(e.target).children().hasClass('pdf-icon') || $(e.target).parents().hasClass('pdf-icon') || $(e.target).hasClass('pdf-icon') ) {
-                       $('.dock ul').append('<li class="litte-app dock-item-pdf"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
-                   }
-                  if( $(e.target).children().hasClass('ar-icon') || $(e.target).parents().hasClass('ar-icon') || $(e.target).hasClass('ar-icon') ) {
-                       $('.dock ul').append('<li class="litte-app dock-item-ar"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
-                   }
-
-
+                       $('.dock ul').append('<li class="litte-app dock-item-pdf dock-item--active"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
+                   }else if( $(e.target).parents().hasClass('joint') ) {
+                       $('.dock ul').append('<li class="litte-app dock-item-pdf dock-item--active"><a href="#" data-window="'+appName+'"><span>dos.pdf</span></a></li>');
+                   }else if( $(e.target).parents().hasClass('dossier-joint') ) {
+                       $('.dock ul').append('<li class="litte-app dock-item-pdf dock-item--active"><a href="#" data-window="'+appName+'"><span>rapp...</span></a></li>');
+                   }else if( $(e.target).hasClass('doc')  ) {
+                       $('.dock ul').append('<li class="litte-app dock-item-word dock-item--active"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
+                   }else if( $(e.target).hasClass('folder')  ) {
+                       $('.dock ul').append('<li class="litte-app dock-item-folder dock-item--active"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
+                   }else if( $(e.target).hasClass('enquete') ) {
+                       $('.dock ul').append('<li class="litte-app dock-item-folder dock-item--active"><a href="#" data-window="'+appName+'"><span>'+appDockName+'</span></a></li>');
+                   }else if( $(e.target).children().hasClass('word-icon') || $(e.target).parents().hasClass('word-icon') || $(e.target).hasClass('word-icon') || $(e.target).hasClass('fill-name') ) {
+                       $('.dock ul').append('<li class="litte-app dock-item-word dock-item--active"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
+                   } else if( $(e.target).children().hasClass('img-icon') || $(e.target).parents().hasClass('img-icon') || $(e.target).hasClass('img-icon') ) {
+                       $('.dock ul').append('<li class="litte-app dock-item-img dock-item--active"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
+                   } else if( $(e.target).hasClass('hidden-link') ){
+                       $('.dock ul').append('<li class="litte-app dock-item-img dock-item--active"><a href="#" data-window="'+appName+'"><span>'+HiddenLinkfin+'</span></a></li>');
+                   }else if( $(e.target).children().hasClass('note-icon') || $(e.target).parents().hasClass('note-icon') || $(e.target).hasClass('note-icon') ) {
+                       $('.dock ul').append('<li class="litte-app dock-item-notes dock-item--active"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
+                   } else if( $(e.target).children().hasClass('pdf-icon') || $(e.target).parents().hasClass('pdf-icon') || $(e.target).hasClass('pdf-icon') ) {
+                       $('.dock ul').append('<li class="litte-app dock-item-pdf dock-item--active"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
+                   } else if( $(e.target).children().hasClass('ar-icon') || $(e.target).parents().hasClass('ar-icon') || $(e.target).hasClass('ar-icon') ) {
+                       $('.dock ul').append('<li class="litte-app dock-item-ar dock-item--active"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
+                  }
+                
+                  $('.litte-app a[data-window="'+appName+'"]').click(checkWindow);
+                  
             } 
-              
+               
           }
         
+/* ------------------------------------------------------------ */ 
+    
+    function checkWindow(e) {
+        
+        var appName = $(this).data('window'),
+          targetWindow = $('.window[data-window="' + appName + '"]'),
+          targetDock = $('.dock ul li a[data-window="' + appName + '"]').parent(),
+          target = $(e.target);
+        
+         e.preventDefault();
+        
+        if ( $(targetWindow).hasClass('window-active') ) {
+            
+            $(targetWindow).removeClass('window-active').addClass('window-minimized');
+            $(targetDock).removeClass('dock-item--active').addClass('dock-item--minimized');
+            
+        } else {
+            $('.dock-item--active').removeClass('dock-item--active').addClass('dock-item--minimized');
+            $('.window-active').removeClass('window-active');
+            $(targetWindow).removeClass('window-minimized').addClass('window-active').css({ 'z-index' : zIndex++ });
+            $(targetDock).removeClass('dock-item--minimized').addClass('dock-item--active');
+            
+        }
+    };
+    
+    
+    
        
-       
-    } 
-      
-    $('.litte-app a').click(openSoftware);  
-  }); 
-
 /* ------------------------------------------------------------ */    
 
 // -------------------------------------------
@@ -791,20 +849,10 @@ $(function(e){
         $('.window[data-window="perso"] .dossier-alsace').hide();
         $('.window[data-window="perso"] .dossier-principal').show();
     });
-    
-   
-    
-    
-    $('.dock ul li a').click(openSoftware);
-    $('table .file-list').dblclick(openSoftware);
-    $('.logo a').click(openSoftware);
-    $('.mails-toolbar a').click(openSoftware);
-    $('.hidden-link').click(openSoftware);
-    $('.files').dblclick(openSoftware);
-    $('.folder').dblclick(openSoftware);
-    $('.enquete').dblclick(openSoftware);
-    $('.folder-file').dblclick(openSoftware);
-    $('.joint').dblclick(openSoftware);
+       
+    $('.dock-item-mail a, .dock-item-explorer a, .dock-item-internet a').click(openSoftware);
+    $('.hidden-link').click(openIcon);
+    $('table .file-list, .files, .folder, .enquete, .folder-file, .joint, .dossier-joint').dblclick(openIcon);
     
     
     // -------------------------------------------
@@ -880,8 +928,8 @@ $('.window-archive[data-window="archive-livres"] tr ').click(function() {
 
 $('.desktop').click(function(e){
     if( !$(e.target).parents().hasClass('window') && !$(e.target).parents().hasClass('dock') && !$(e.target).hasClass('ui-resizable-handle') ) {
-        
         $('.window').removeClass('window-active');
+        $('.dock ul .dock-item--active').removeClass('dock-item--active').addClass('dock-item--minimized');
     }
 });
     
@@ -944,22 +992,7 @@ $('.desktop').click(function(e){
             minHeight : 300
         });
 
-        $('.hidden-link').click(function(e){
-            var appName = $(this).data('window'),
-                dockWidth = $('.dock').width(),
-                appDockName = $(this).find('span').text(),
-                filesDockName = $('.desktop').find('.window[data-window="'+appName+'"] .toolbar h3').text(),
-                charCount = filesDockName.split("",7),
-                fin = charCount.join("")+'...';
-
-            if( $('.dock ul li a[data-window="' + appName + '"]').length === 0 ) {
-                   $('.dock').width(dockWidth + 72);
-                   $('.dock ul').append('<li class="litte-app dock-item-img"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
-               }
-            $('.litte-app a').click(openSoftware);  
-        });
-
-        $('.hidden-link').click(openSoftware);
+        $('.hidden-link').click(openIcon);
         
         $('.launch-teller').click(function(){
             $('.home').hide();

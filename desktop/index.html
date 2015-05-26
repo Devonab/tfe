@@ -127,7 +127,7 @@
           <ul>
               <li class="dock-item-mail"><a href="#" data-window="mail"><span>Mails</span></a><span class="new-mail">3</span></li>
               <li class="dock-item-explorer"><a href="#" data-window="explorer"><span>Explorer</span></a></li>
-              <li class="dock-item-internet dock-item--open"><a href="#" data-window="internet"><span>Internet</span></a></li>
+              <li class="dock-item-internet dock-item--active"><a href="#" data-window="internet"><span>Internet</span></a></li>
           </ul>
           
       </div>
@@ -1965,6 +1965,50 @@ Alan s’impatientait, attendant avec espoir qu’il livre un peu plus de détai
        <!-- end Window correct-epreuve -->
        
        
+        <!-- Window Correct-epreuve -->
+       <div class="window window-closed pdf-window" data-window="rapport-enquete">
+           <div class="toolbar">
+               <h3>rapp_cc2015.pdf</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           
+           
+           <div class="windowbody">
+               <div class="window-container">
+                  
+                   <div class="enq-page" id="pg1">
+                        <img src="../assets/img/meta/dossier-enq/pg1.png" alt="cover" />
+                   </div><!-- end page 1 -->
+                   <div class="enq-page" id="pg2">
+                       <img src="../assets/img/meta/dossier-enq/pg2.png" alt="page 2" />
+                   </div><!-- end page 2 -->
+                   <div class="enq-page" id="pg3">
+                       <img src="../assets/img/meta/dossier-enq/pg3.png" alt="page 3" />
+                   </div><!-- end page 3 -->
+                   <div class="enq-page" id="pg4">
+                       <img src="../assets/img/meta/dossier-enq/pg4.png" alt="page 4" />
+                   </div><!-- end page 4 -->
+                   <div class="enq-page" id="pg5">
+                       <img src="../assets/img/meta/dossier-enq/pg5.png" alt="page 5" />
+                   </div><!-- end page 5 -->
+                       
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="pdf-bottom">
+               <ul>
+                   <li><a href="#">Précédent</a></li>
+                   <li></li>
+                   <li><a href="#">Suivant</a></li>
+               </ul>
+               <p>Poids : 2.4 mo</p>
+           </div>
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window rapport-enquete -->
        
        
        <!-- Window affiche disparition -->
@@ -2520,7 +2564,7 @@ Pourquoi tu ne participes pas aux recherches ? Que fais-tu toute tes journées ?
                                 
                                 <hr>
                                     
-                                <a href="#" data-window="rapport-enquete">
+                                <a href="#" data-window="rapport-enquete" class="dossier-joint">
                                       <figure>
                                           <img src="../assets/img/desktop/icon-pdf.png" alt="rapport-enquete">
                                           <figcaption>Fichier lié - rapp_cc2115.pdf - 2.4mo</figcaption>
@@ -2910,7 +2954,6 @@ Rachelle
        $(window).load(function() {
           $('.loader').fadeOut("slow"); 
           $('.tuto').show();
-          
        });
               
         /*$(window).load(function() {
