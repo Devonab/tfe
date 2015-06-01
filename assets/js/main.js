@@ -113,11 +113,15 @@ $(function(e){
     });
     
     $('#second-window .next').click(function(){
-        $('#second-window').css('left','-200%');
-        $('#last-window').css('top','0');
-        setTimeout(function(){
-                $('#second-window').hide()
-        },1000);
+        $('#second-window').css('left','-200%').queue(function(){
+            $('.menu').addClass('translate');
+            $('#last-window').css('top','0');
+            setTimeout(function(){
+                    $('#second-window').hide()
+            },1000);
+            $(this).dequeue();
+        });
+        
     });
     
     
@@ -702,14 +706,17 @@ $('.window[data-window="rapport-enquete"]').each(function() {
           fin = charCount.join("")+'...',
           filesDockName = $('.desktop').find('.window[data-window="'+appName+'"] .toolbar h3').text(),
           HiddenLinkcharCount = filesDockName.split("",7),
-          HiddenLinkfin = HiddenLinkcharCount.join("")+'...';
+          HiddenLinkfin = HiddenLinkcharCount.join("")+'...',
+          explorerfilesDockName = $('.desktop').find('.window[data-window="'+appName+'"] .toolbar h3').text(),
+          explorercharCount = explorerfilesDockName.split("",7),
+          explorerfin = explorercharCount.join("")+'...';
         
         e.preventDefault();
               
         if( $(targetWindow).hasClass('window-closed') ) {
             
             $('.window').removeClass('window-active');
-            $(targetWindow).removeClass('window-closed').addClass('window-active').css({'z-index' : zIndex++});;
+            $(targetWindow).removeClass('window-closed').addClass('window-active').css({'z-index' : zIndex++});
             
         }
               
@@ -742,6 +749,18 @@ $('.window[data-window="rapport-enquete"]').each(function() {
                        $('.dock ul').append('<li class="litte-app dock-item-pdf dock-item--active"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
                    } else if( $(e.target).children().hasClass('ar-icon') || $(e.target).parents().hasClass('ar-icon') || $(e.target).hasClass('ar-icon') ) {
                        $('.dock ul').append('<li class="litte-app dock-item-ar dock-item--active"><a href="#" data-window="'+appName+'"><span>'+fin+'</span></a></li>');
+                  } else if ( $(e.target).parent().hasClass('img') ) {
+                      $('.dock ul').append('<li class="litte-app dock-item-img dock-item--active"><a href="#" data-window="'+appName+'"><span>'+explorerfin+'</span></a></li>');
+                  } else if ( $(e.target).parent().hasClass('ar') ) {
+                      $('.dock ul').append('<li class="litte-app dock-item-ar dock-item--active"><a href="#" data-window="'+appName+'"><span>'+explorerfin+'</span></a></li>');
+                  } else if ( $(e.target).parent().hasClass('pdf') ) {
+                      $('.dock ul').append('<li class="litte-app dock-item-pdf dock-item--active"><a href="#" data-window="'+appName+'"><span>'+explorerfin+'</span></a></li>');
+                  } else if ( $(e.target).parent().hasClass('notes') ) {
+                      $('.dock ul').append('<li class="litte-app dock-item-notes dock-item--active"><a href="#" data-window="'+appName+'"><span>'+explorerfin+'</span></a></li>');
+                  } else if ( $(e.target).parent().hasClass('ar') ) {
+                      $('.dock ul').append('<li class="litte-app dock-item-ar dock-item--active"><a href="#" data-window="'+appName+'"><span>'+explorerfin+'</span></a></li>');
+                  }  else if ( $(e.target).parent().hasClass('word') ) {
+                      $('.dock ul').append('<li class="litte-app dock-item-word dock-item--active"><a href="#" data-window="'+appName+'"><span>'+explorerfin+'</span></a></li>');
                   }
                 
                   $('.litte-app a[data-window="'+appName+'"]').click(checkWindow);
@@ -749,6 +768,39 @@ $('.window[data-window="rapport-enquete"]').each(function() {
             } 
                
           }
+    
+          $('.rac-icon').parent('.folder-file').dblclick(function(){
+              
+              if( !$('.window[data-window="internet"]').hasClass('window-closed') ) {
+                  
+                  $('.window').removeClass('window-active');
+                  $('.window[data-window="internet"]').addClass('window-active').css({'z-index' : zIndex++ + 1});
+                  $('.home, .enigma, iframe').hide();
+                  $('.window[data-window="internet"] .toolbar h3').html('Accueil - Yann Dorner');
+                  $('.window[data-window="internet"] .addressbar').html('www.yann-dorner.be/');
+                  $('#dorneriframe').attr('src','../desktop/dorner.html');
+                  $('#dorneriframe').show();
+                  
+
+                    if ( $('#dorneriframe').is(':visible') ) {
+                        var link = $("#dorneriframe").contents().find(".dorner-accueil-link");
+                        
+                        $(link).click(function(){alert('guy'); });
+                        
+                        $('.navigation-actions .left li:first-child a').click(function(){
+                            $('#dorneriframe').hide();
+                            $('.window[data-window="internet"] .toolbar h3').html('Accueil - Navigateur internet');
+                            $('.window[data-window="internet"] .addressbar').html('nav://home');
+                            
+                            
+                            
+                        });
+                    }
+                  
+                  
+              }
+              
+          });
         
 /* ------------------------------------------------------------ */ 
     
@@ -855,6 +907,17 @@ $('.window[data-window="rapport-enquete"]').each(function() {
     $('table .file-list, .files, .folder, .enquete, .folder-file, .joint, .dossier-joint').dblclick(openIcon);
     
     
+    $('.logo a').click(function(){
+        if( !$('#about').hasClass('window-active') ) {
+            $('#about').removeClass('window-closed').queue(function(){
+                $('#about').addClass('window-active');
+                $('#about').css({'z-index' : zIndex++});
+                $('#about').dequeue();
+            });
+        }
+    });
+    
+    
     // -------------------------------------------
     
 // -------------------------------------------
@@ -879,10 +942,10 @@ $('.window[data-window="rapport-enquete"]').each(function() {
 // -------------------------------------------
 
     
-$('.window-archive[data-window="archive-livres"] tr ').click(function() {
+$('.window-archive[data-window="archive-livres"] tr, .window-archive[data-window="archive-disney"] tr ').click(function() {
     
     if( !$(this).is( ":first-child" ) ) {
-        $('.window-archive[data-window="archive-livres"] tr').removeClass('clicked');
+        $('.window-archive[data-window="archive-livres"] tr, .window-archive[data-window="archive-disney"] tr ').removeClass('clicked');
         $(this).addClass('clicked');
     }
 });

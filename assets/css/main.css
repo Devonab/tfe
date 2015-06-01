@@ -37,12 +37,14 @@ body {
 }
 
 
+a:focus, a:active { outline: none; }
+
 /* ================================================== */
 
 
 section {
-    display: -webkit-flex; /* Chrome */
-    display: -webkit-box; /* Safari */
+    display: -webkit-flex; 
+    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 	-webkit-box-pack: center;
@@ -54,7 +56,7 @@ section {
 	    -ms-flex-align: center;
 	        align-items: center;
     background: url(../img/website/bg-section.png) no-repeat center 130px / cover;
-    max-width: 995px;
+    max-width: 900px;
     min-height: 100%;
     margin: 0 auto;
     position: relative;
@@ -192,6 +194,7 @@ strong { font-weight: bold; }
     font-size: 10px;
     font-size: 1rem;
     letter-spacing: 1px;
+    width: 80%;
 }
 
 #contact form input {
@@ -202,6 +205,8 @@ strong { font-weight: bold; }
 #contact form input[type="text"] {
     width: 50%;
     padding: 15px 10px;
+    -webkit-appearance: none;
+    font-size: 10px; font-size: 1rem;
 }
 
 #contact form input[type="submit"] {
@@ -233,7 +238,7 @@ footer {
 
 .footer-container {
     position: relative;
-    max-width: 995px;
+    max-width: 900px;
     margin: auto;
 }
 
@@ -517,11 +522,41 @@ nav ul li a {
   margin: auto;
 
 }
+
+
 /* ================================================== */
 
-@media all and (max-width: 1280px) {
+.abo {
+   background: url(../img/website/background-end.jpg) no-repeat fixed center/cover; 
+}
+
+
+.abo section { background: url(../img/diary/background-entry.png) no-repeat; overflow: hidden;}
+.abo #logo { margin: 0; }
+.abo #logo a { width: 426px; height: 126px; left: 0; }
+
+.back-site {
+    display: block;
+    background: url("../img/diary/buttons.png") no-repeat left top;
+    height: 62px;
+    text-indent: -9999px;
+    width: 136px;
+    margin: 15px auto;
+}
+
+.back-site:hover {
+    background-position: 0 -62px;
+}
+.abo .align h2 { margin-bottom: 65px; }
+.abo .align { width: 100%; text-align: center; }
+.abo .message { display: block; }
+
+/* ================================================== */
+
+@media all and (max-width: 1440px) {
     
     #start { margin: 40px auto;}
+    #contact form { width: 100%;}
     .main-site,
     #contact { background-size: 120%; }
     section { max-width: 800px; background-position: 0 100px; padding-top: 150px; }

@@ -1,6 +1,25 @@
 <?php 
 require_once('../connect.php');
 
+if($_POST['updateStatut']){
+    $updateStatut = trim(strip_tags($_POST['updateStatut']));  
+    $id = trim(strip_tags($_POST['hidden-id']));
+
+    
+    if( $updateStatut == '1' || $updateStatut == '0'  ) {
+    
+        $query = "UPDATE mailinglist SET statut = :statut WHERE id like :id"; 
+        $preparedStatement = $connexion->prepare($query);
+        $preparedStatement->bindParam(':id', $id);
+        $preparedStatement->bindParam(':statut', $updateStatut);
+        $preparedStatement->execute();
+        
+    } else {
+        
+        $message['erreurstat'] = "Valeur uniquement 0 ou 1";
+    }
+}
+
 if($_POST['delete']){
     $id = $_POST['delete_id'];  
     $query = "DELETE FROM mailinglist WHERE id= :id"; 
@@ -21,25 +40,31 @@ if($_POST['message']) {
     
     $messageContent = $_POST['message'];
     $subjectContent = trim(strip_tags($_POST['subject']));
-    $query = "SELECT email FROM mailinglist";
+    $query = "SELECT email,statut FROM mailinglist";
     $preparedStatement = $connexion->prepare($query);
     $preparedStatement->execute();
+            
+    
     
     while( $result = $preparedStatement->fetch() ) {
         
-        $to = $result['email'];
-        $subject = $subjectContent;
-        $headers .= 'From: Disparition | Enquête intéractive <disparition@alexandre-buruk.be>' . "\r\n";
-        $headers = 'Mime-Version: 1.0'."\r\n";
-        $headers .= 'Content-type: text/html; charset=utf-8'."\r\n";
-        $headers .= "\r\n";
-        $msg = $messageContent;
+        if( $result['statut'] == 1 ) {
+            
+            $to = $result['email'];
+            $subject = $subjectContent;
+            $headers .= 'From: Disparition | Enquête intéractive <disparition@alexandre-buruk.be>' . "\r\n";
+            $headers = 'Mime-Version: 1.0'."\r\n";
+            $headers .= 'Content-type: text/html; charset=utf-8'."\r\n";
+            $headers .= "\r\n";
+            $msg = $messageContent;
 
-        // Function mail()
-        mail($to, $subject, $msg, $headers);
+            // Function mail()
+            mail($to, $subject, $msg, $headers);
     
-    }
+        }
 
+    }
+    
 }
 ?>
 
@@ -62,6 +87,7 @@ if($_POST['message']) {
    <tr>
       <td>ID</td>
        <td>Email</td>
+       <td>Statut<br /><i>(1= actif, 0 = inactif)<p class="errorstat"><?php echo $message['erreurstat']; ?></p></i></td>
        <td>Supprimer user</td>
    </tr>
    <?php 
@@ -73,10 +99,15 @@ if($_POST['message']) {
             while( $result = $preparedStatement->fetch(PDO::FETCH_ASSOC) ) {
                 echo '<tr><td>'.$result['id'].'</td>';
                 echo '<td>'.$result['email'].'</td>';
+                echo '<td><form class="change_statut" method="post" action="">';
+                echo '<input type="hidden" name="hidden-id" value="'.$result['id'].'"/>';
+                echo '<input type="text" id="updateStatut" name="updateStatut" placeholder="'.$result['statut'].'"/><input type ="submit" name="submit" value="valider" />';
+                echo '</form></td>';
                 echo '<td><form class="delete" method="post" action="">';
                 echo '<input type="hidden" name="delete_id" value="'.$result['id'].'"/>';
                 echo '<input type="submit" name="delete" value="X"/>';
                 echo '</form></td></tr>';
+                
             }
     
     ?>

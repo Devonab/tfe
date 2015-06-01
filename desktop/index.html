@@ -42,7 +42,7 @@
  <!-- initialization window -->
     <div class="loader">
        <section class="booting">
-           <h1 class="bootLogo">Minerva 10.0</h1>
+           <h1 class="bootLogo">Linos 10.0</h1>
            <h2>Initialization <span>.</span><span>.</span><span>.</span></h2>
         </section>
         <footer>
@@ -98,7 +98,7 @@
           <h1>Avant de vous lâcher...</h1>
            <p>Un menu vient d'apparaître en haut. </p>
            <p>Il va vous permettre d'accéder au journal de Yann, où ce dernier expliquera au fur et à mesure que vous résolvez des énigmes, son ressenti par rapport aux évènements.</p>
-           <p>C'est aussi dans ce journal, si jamais vous êtes coincé sur une énigme, que vous pourrez recevoir un peu d'aide de Yann.</p>
+           <p>Ce journal se met à jours à chaque fois que vous résolvez une énigme et il est vivement conseillé de le consulter. Bonne chance !</p>
            <a href="#" class="close-tuto">fermer</a>
        </div>
        
@@ -462,12 +462,13 @@ Il ne croisa personne durant son chemin, 10 bonnes minutes s'étaient écoulées
                    <iframe name="searchiframe" id="searchresult" style="display:none;"></iframe><!-- end search result -->
                    <iframe name="telleriframe" id="telleriframe" style="display:none;"></iframe><!-- end teller iframe -->
                    <iframe name="bressieriframe" id="bressieriframe" style="display:none;"></iframe><!-- end teller iframe -->
+                   <iframe name="dorneriframe" id="dorneriframe" style="display:none;"></iframe><!-- end dorner iframe -->
                    <div class="first-enigma enigma">
                        <h1>Prêt pour un voyage Yann ?</h1>
                 <p class="enigma-text">
                     Naïvement, il s<span style="color:red;">e</span> sentait en sécurité mais dans l’obscurité de l’allée brumeu<span style="color:red;">s</span>e, une paire d’yeux se dégageait de l’épaisse fumée. E<span style="color:red;">l</span>le guettait le moment... L'instant opportun pour bondir et transformer une vie en véritable enfer.
                 </p>
-                <p class="indice">3 sauts au Nord te donneront la réponse</p>  
+                <p class="indice">Souviens-toi de ce texte et retrouve le. Car 3 sauts au Nord te donneront la réponse</p>  
                 <a class="hidden-link" data-window="toy"></a>
                     <label>Qu'as-tu trouvé en sautant ? </label><input type="text" id="answer-enigma" name="answer-enigma"/>
                     <input type="submit" value="ok" id="submit-button"/>
@@ -766,7 +767,7 @@ Il ne croisa personne durant son chemin, 10 bonnes minutes s'étaient écoulées
                            <td>ch6_essais.doc</td>
                            <td>19/05/2015</td>
                        </tr>
-                       <tr class="file-list word" data-window="archive-chapitres">
+                       <tr class="file-list ar" data-window="archive-chapitres">
                            <td><img src="../assets/img/desktop/ar_small_icon.png" alt="fichier ar chapitres"></td>
                            <td>chapitres.ar</td>
                            <td>14/05/2015</td>
@@ -786,6 +787,16 @@ Il ne croisa personne durant son chemin, 10 bonnes minutes s'étaient écoulées
                            <td>critique_contresens.jpg</td>
                            <td>12/03/2009</td>
                        </tr>
+                       <tr class="file-list ar" data-window="archive-disney">
+                           <td><img src="../assets/img/desktop/ar_small_icon.png" alt="fichier archives disney"></td>
+                           <td>disney.ar</td>
+                           <td>27/07/2014</td>
+                       </tr>
+                       <tr class="file-list pdf" data-window="lettre-plainte">
+                           <td><img src="../assets/img/desktop/pdf_small_icon.png" alt="fichier pdf lettre plainte"></td>
+                           <td>lettre-plainte.pdf</td>
+                           <td>19/05/2015</td>
+                       </tr>
                        <tr class="file-list word" data-window="leviathan">
                            <td><img src="../assets/img/desktop/word_small_icon.png" alt="fichier word leviathan"></td>
                            <td>leviathan.doc</td>
@@ -796,7 +807,7 @@ Il ne croisa personne durant son chemin, 10 bonnes minutes s'étaient écoulées
                            <td>livres.doc</td>
                            <td>24/05/2015</td>
                        </tr>
-                       <tr class="file-list word" data-window="archive-livres">
+                       <tr class="file-list ar" data-window="archive-livres">
                            <td><img src="../assets/img/desktop/ar_small_icon.png" alt="fichier archives livres"></td>
                            <td>livres.ar</td>
                            <td>24/03/2015</td>
@@ -874,6 +885,14 @@ Il ne croisa personne durant son chemin, 10 bonnes minutes s'étaient écoulées
                            <span class="icon folder-icon"></span>
                            <span class="file-name">Alsace-vues-chalet</span>
                        </a>
+                        <a class="folder-file" href="#" data-window="archive-disney">
+                            <span class="icon ar-icon"></span>
+                            <span class="file-name">disney.ar</span>
+                        </a>
+                        <a class="folder-file" href="#" data-window="internet">
+                            <span class="icon rac-icon"></span>
+                            <span class="file-name">site.rac</span>
+                        </a>
                         <a class="folder-file" href="#" data-window="scan_chanlez">
                             <span class="icon img-icon"></span>
                             <span class="file-name">scan_Chanlèz.jpg</span>
@@ -953,6 +972,10 @@ Il ne croisa personne durant son chemin, 10 bonnes minutes s'étaient écoulées
                        <a class="folder-file" href="#" data-window="leviathan">
                            <span class="icon word-icon"></span>
                            <span class="file-name">leviathan.doc</span>
+                       </a>
+                       <a class="folder-file" href="#" data-window="lettre-plainte">
+                           <span class="icon pdf-icon"></span>
+                           <span class="file-name">lettre-plainte.pdf</span>
                        </a>
                        <a class="folder-file" href="#" data-window="dossier-presse">
                            <span class="icon img-icon"></span>
@@ -1265,7 +1288,7 @@ Partir sur l'idée que le protagoniste principal se retrouve piégé par l'antag
         <!-- Window compte-rendu -->
        <div class="window window-closed window-notes" data-window="compte-rendu">
            <div class="toolbar">
-               <h3>compte-rendu.note</h3>
+               <h3>compte-rendu.notes</h3>
                <ul class="button">
                    <li><a href="#" class="window-maximize-button"></a></li>
                    <li><a href="#" class="window-minimize-button"></a></li>
@@ -2087,9 +2110,168 @@ Alan s’impatientait, attendant avec espoir qu’il livre un peu plus de détai
            </div><!-- end body -->
            <div class="window-bottom"></div>
        </div>
-       <!-- end Window disparition -->
+       <!-- end Window dossier presse -->
        
+        <!-- Window livres -->
+       <div class="window window-closed window-archive" data-window="archive-disney">
+           <div class="toolbar">
+               <h3>disney.ar</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+               <div class="panel-tools">
+                 <ul>
+                      <li><a href="#"><img src="../assets/img/desktop/archive-icons-1.png" alt="" /><span>Extraire</span></a></li>
+                      <li><a href="#"><img src="../assets/img/desktop/archive-icons-3.png" alt="" /><span>Vérifier</span></a></li>
+                      <li><a href="#"><img src="../assets/img/desktop/archive-icons-4.png" alt="" /><span>Ajouter</span></a></li>
+                      <li><a href="#"><img src="../assets/img/desktop/archive-icons-5.png" alt="" /><span>Supprimer</span></a></li>
+                      <li class="archive-search">
+                          <form class="search" action="">
+                               <input type="search" placeholder="Rechercher" />
+                               <button class="search-valid"><img src="../assets/img/desktop/search-icon.svg" alt="button search"></button>
+                           </form>
+                   </li>
+                  </ul>
+           </div>
+           </div>
+           
+           <div class="windowbody">
+              
+               <div class="window-container">
+                
+                 <table>
+                    
+                     <tr class="head">
+                         <td>Nom</td>
+                         <td>Taille</td>
+                         <td>Type</td>
+                         <td>Modifié</td>
+                     </tr>
+                     <tr>
+                         <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img">IMG_7144.jpg</td>
+                         <td>6.3mo</td>
+                         <td>fichier JPG</td>
+                         <td>27 juillet 2014</td>
+                     </tr>
+                     <tr>
+                         <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img">IMG_7145.jpg</td>
+                         <td>6.8mo</td>
+                         <td>fichier JPG</td>
+                         <td>27 juillet 2014</td>
+                     </tr>
+                     <tr>
+                         <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img">IMG_7146.jpg</td>
+                         <td>6.4mo</td>
+                         <td>fichier JPG</td>
+                         <td>27 juillet 2014</td>
+                     </tr>
+                     <tr>
+                         <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img">IMG_7147.jpg</td>
+                         <td>6.2mo</td>
+                         <td>fichier JPG</td>
+                         <td>27 juillet 2014</td>
+                     </tr>
+                     <tr>
+                         <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img">IMG_7148.jpg</td>
+                         <td>6.8mo</td>
+                         <td>fichier JPG</td>
+                         <td>27 juillet 2014</td>
+                     </tr>
+                     <tr>
+                         <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img">IMG_7149.jpg</td>
+                         <td>6.4mo</td>
+                         <td>fichier JPG</td>
+                         <td>27 juillet 2014</td>
+                     </tr>
+                     <tr>
+                         <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img">IMG_7150.jpg</td>
+                         <td>6.2mo</td>
+                         <td>fichier JPG</td>
+                         <td>27 juillet 2014</td>
+                     </tr>
+                     <tr>
+                         <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img">IMG_7151.jpg</td>
+                         <td>6.2mo</td>
+                         <td>fichier JPG</td>
+                         <td>27 juillet 2014</td>
+                     </tr>
+                     <tr>
+                         <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img">IMG_7152.jpg</td>
+                         <td>6.8mo</td>
+                         <td>fichier JPG</td>
+                         <td>27 juillet 2014</td>
+                     </tr>
+                     <tr>
+                         <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img">IMG_7153.jpg</td>
+                         <td>6.5mo</td>
+                         <td>fichier JPG</td>
+                         <td>27 juillet 2014</td>
+                     </tr>
+                     <tr>
+                         <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img">IMG_7154.jpg</td>
+                         <td>6.1mo</td>
+                         <td>fichier JPG</td>
+                         <td>27 juillet 2014</td>
+                     </tr>
+                     <tr>
+                         <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img">IMG_7155.jpg</td>
+                         <td>6.7mo</td>
+                         <td>fichier JPG</td>
+                         <td>27 juillet 2014</td>
+                     </tr>
+                     <tr>
+                         <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img">IMG_7156.jpg</td>
+                         <td>6.3mo</td>
+                         <td>fichier JPG</td>
+                         <td>27 juillet 2014</td>
+                     </tr>
+                     <tr>
+                         <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img">IMG_7157.jpg</td>
+                         <td>6.3mo</td>
+                         <td>fichier JPG</td>
+                         <td>27 juillet 2014</td>
+                     </tr>
+                     <tr>
+                         <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img">IMG_7158.jpg</td>
+                         <td>6.4mo</td>
+                         <td>fichier JPG</td>
+                         <td>27 juillet 2014</td>
+                     </tr>
+                     <tr>
+                         <td><img src="../assets/img/desktop/img_small_icon.png" alt="fichier img">IMG_7159.jpg</td>
+                         <td>6.1mo</td>
+                         <td>fichier JPG</td>
+                         <td>27 juillet 2014</td>
+                     </tr>
+                    
+                 </table>
+                 
+               </div>
+           </div>
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window livres-->
        
+       <!-- Window lettre plainte -->
+       <div class="window window-closed presse fichier-scan" data-window="lettre-plainte">
+           <div class="toolbar">
+               <h3>lettre-plainte.pdf</h3>
+               <ul class="button">
+                   <li><a href="#" class="window-maximize-button"></a></li>
+                   <li><a href="#" class="window-minimize-button"></a></li>
+                   <li><a href="#" class="window-close-button"></a></li>
+               </ul>
+           </div>
+           <div class="windowbody">
+               <div class="window-container">
+                 <img src="../assets/img/meta/lettre-plainte.png" alt="lettre de plainte" />
+               </div><!-- end container -->
+           </div><!-- end body -->
+           <div class="window-bottom"></div>
+       </div>
+       <!-- end Window lettre plainte -->
        
        <!-- Window mail -->
        <div class="window window-closed" data-window="mail">

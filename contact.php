@@ -35,11 +35,45 @@ if (count($_POST)>0) {
                 $messages['doublon'] = "<p>Vous êtes déjà dans notre base de donnée.</p>";
 
             } else {
-                $query = "INSERT INTO mailinglist (email) VALUES (:email)";
+                $query = "INSERT INTO mailinglist (email,subscribeDate) VALUES (:email, NOW())";
                 $preparedStatement = $connexion->prepare($query);
-                $preparedStatement->bindParam(':email', $email);
-                $preparedStatement->execute();
-                $messages['added'] = "<p>Vous avez été ajouté dans notre base de donnée</p>"; 
+                $preparedStatement->bindParam(':email', $email);                
+                
+                if($preparedStatement->execute()) {
+                    
+                    $messages['added'] = "<p>Vous venez de recevoir un mail de confirmation, vérifiez votre boite mail.</p>"; 
+                    
+                    $flag = md5(microtime(TRUE)*100000);
+                    $query = "UPDATE mailinglist SET flag=:flag  WHERE email like :email";
+                    $preparedStatement = $connexion->prepare($query);
+                    $preparedStatement->bindParam(':flag', $flag);
+                    $preparedStatement->bindParam(':email', $email);
+                    $preparedStatement->execute();
+                    
+                    $destinataire = $email;
+                    $sujet = "Confirmer votre abonement | Disparition" ;
+                    $headers .= 'From: Disparition | Enquête intéractive' . "\r\n";
+                    $headers = 'Mime-Version: 1.0'."\r\n";
+                    $headers .= 'Content-type: text/html; charset=utf-8'."\r\n";
+                    $headers .= "\r\n";
+                    $message = '<h1>Merci de vous être inscrit à notre newsletter,</h1>
+
+                    <p>Par mesure de sécurité, il est nécessaire de confirmer votre abonement. Pour ce faire, cliquez simplement sur ce lien :</p>
+
+                    <a href="http://alexandre-buruk.be/tfe/final/confirmation.php?email='.urlencode($email).'&flag='.urlencode($flag).'">Confirmer votre abonement</a>
+                    
+                    <p>Passé 24 heures, si vous n\'avez pas confirmé votre adresse mail, cette dernière sera automatiquement supprimée de notre base de donnée.</p>
+
+                    <small><hr />
+                    Ceci est un mail automatique, Merci de ne pas y répondre.</small></p>';
+
+
+                    mail($destinataire, $sujet, $message, $headers) ; // Envoi du mail
+                    
+                }
+                
+                
+                
             }
 
         } else {
@@ -93,8 +127,11 @@ if (count($_POST)>0) {
             <h1 id="logo"><a href="index.html">Disparition</a></h1>
             
             <section>
-                
-                <h1 id="about">Contact</h1>
+               
+               <div class="align">
+                   
+                   
+                   <h1 id="about">Contact</h1>
                 
                 <p>Une question particulière ? Envie de simplement écrire un message ? N'hésitez pas et écrivez-moi à <a href="#">contact@disparition.be</a></p>
                 
@@ -136,6 +173,9 @@ if (count($_POST)>0) {
                 
                 <a href="index.html" id="back" >Retour</a>
                 
+                
+                </div>
+                
                 <footer>
 
                        <nav>
@@ -146,16 +186,19 @@ if (count($_POST)>0) {
                            </ul>
 
                            <ul class="social">
-                               <li><a href="#">Facebook</a></li>
-                               <li><a href="#">Twitter</a></li>
-                               <li><a href="#">Google +</a></li>
-                               <li><a href="#">Email</a></li>
+                               <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://alexandre-buruk.be/tfe/final/" target="_blank">Facebook</a></li>
+                               <li><a href="http://twitter.com/share?url=http://alexandre-buruk.be/tfe/final/&text=Projet de fin d'études, enquête interactive.&via=devonab&related=devonab" target="_blank">Twitter</a></li>
+                               <li><a href="https://plus.google.com/share?url=http://alexandre-buruk.be/tfe/final/" target="_blank">Google +</a></li>
+                               <li><a href="mailto:?subject=Disparition, une enquête interactive à découvrir">Email</a></li>
                            </ul>
                        </nav>
 
                     </footer>
                 
             </section>
+                   
+                
+                
             
         </div>
 </body>
