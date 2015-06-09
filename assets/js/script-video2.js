@@ -6,20 +6,24 @@ $(function(){
         
         if( $('.video-fin').is(':visible') ) {
             video[0].play();
+            $('body').css('overflow','hidden');
             
             $('.fermer').click(function() {
                 video[0].pause();
                 video[0].currentTime = 0;
                 $('.video-fin').fadeOut('slow');
+                $('body').css('overflow','auto');
             });
             
             $('#play-video').click(function(){
-                 $('.video-fin').show();
-                 video[0].play();
+                $('.video-fin').fadeIn('slow');
+                $('body').css('overflow','hidden');
+                video[0].play();
             });
 
             $('.video-fin video').on('ended',function(){
               $('.video-fin').fadeOut('slow');
+                 $('body').css('overflow','auto');
                 video[0].pause();
                 video[0].currentTime= 0;
             });

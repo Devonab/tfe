@@ -13,7 +13,7 @@ function UploadClock( ) {
 
 $(function(){
 
-    
+    $('.error-msg').remove();
     
 // ---------------------------------------------------------------
 // Selection. by http://playground.deaxon.com/js/object-selection/
@@ -785,7 +785,6 @@ $('.window[data-window="rapport-enquete"]').each(function() {
                     if ( $('#dorneriframe').is(':visible') ) {
                         var link = $("#dorneriframe").contents().find(".dorner-accueil-link");
                         
-                        $(link).click(function(){alert('guy'); });
                         
                         $('.navigation-actions .left li:first-child a').click(function(){
                             $('#dorneriframe').hide();
@@ -797,6 +796,23 @@ $('.window[data-window="rapport-enquete"]').each(function() {
                         });
                     }
                   
+                  
+              } else {
+                 
+                  $('.window').removeClass('window-active');
+                  $('.home, .enigma, iframe').hide();
+                  $('.window[data-window="internet"] .toolbar h3').html('Accueil - Yann Dorner');
+                  $('.window[data-window="internet"] .addressbar').html('www.yann-dorner.be/');
+                  $('#dorneriframe').attr('src','../desktop/dorner.html');
+                  $('#dorneriframe').show();
+                  $('.navigation-actions .left li:first-child a').click(function(){
+                            $('#dorneriframe').hide();
+                            $('.window[data-window="internet"] .toolbar h3').html('Accueil - Navigateur internet');
+                            $('.window[data-window="internet"] .addressbar').html('nav://home');
+                            
+                            
+                            
+                        });
                   
               }
               
@@ -1104,7 +1120,6 @@ $('.desktop').click(function(e){
 
     
 });
-
 
     
 // -------------------------------------------

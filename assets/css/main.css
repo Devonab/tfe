@@ -145,6 +145,7 @@ strong { font-weight: bold; }
 
 #start {
     margin: 80px auto;
+    margin-bottom: 40px;
     display: block;
     width: 314px;
     height: 86px;
@@ -223,6 +224,8 @@ strong { font-weight: bold; }
     cursor: pointer;
     background:  #edba1f;
 }
+
+.main-site small { display: block; font-size: 9px; font-size: .9rem; text-align: center; color: #a42727; font-weight: bold; }
 
 /* ================================================== */
 
@@ -473,8 +476,10 @@ nav ul li a {
 .video-intro .fermer,
 .video-fin .fermer { bottom: 25px; right: 25px; }
 
-.video-intro .passer,
-.video-fin .passer  { bottom: 25px; right: 100px; }
+.video-fin .fermer { bottom: 85px; right: 25px; }
+
+.video-intro .passer { bottom: 25px; right: 100px; }
+
 
 .video-intro span a,
 .video-fin span a { 
@@ -582,6 +587,16 @@ nav ul li a {
 }
 
 @media all and (max-width: 640px ) {
+    
+    #logo, 
+    #logo a,
+    #start { width: 100%; }
+    
+    .main-site section {
+        max-width: 100%;
+        padding: 150px 10px 220px 10px;
+        background-position: -50px 100px;
+    }
     
     #logo a { margin-left: 0; }
     nav ul { text-align: center; margin: 10px 0; }

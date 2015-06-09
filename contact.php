@@ -8,7 +8,10 @@ if (count($_POST)>0) {
     if($_POST['check'] != '' ){
         die("bien essayé...");
     }
-   
+    
+    function generateRandomFlag($length = 15) {
+        return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
+    }
     $messages = array(); 
     $subscribe = $_POST['subscribe'];
     $errorUnvalidMail = "";
@@ -43,7 +46,7 @@ if (count($_POST)>0) {
                     
                     $messages['added'] = "<p>Vous venez de recevoir un mail de confirmation, vérifiez votre boite mail.</p>"; 
                     
-                    $flag = md5(microtime(TRUE)*100000);
+                    $flag = md5(generateRandomFlag());
                     $query = "UPDATE mailinglist SET flag=:flag  WHERE email like :email";
                     $preparedStatement = $connexion->prepare($query);
                     $preparedStatement->bindParam(':flag', $flag);
@@ -52,8 +55,9 @@ if (count($_POST)>0) {
                     
                     $destinataire = $email;
                     $sujet = "Confirmer votre abonement | Disparition" ;
-                    $headers .= 'From: Disparition | Enquête intéractive' . "\r\n";
-                    $headers = 'Mime-Version: 1.0'."\r\n";
+                    $headers = "From: \"Disparition | Enquête interactive\"<alexandre.buruk@gmail.com>" . "\r\n";
+                    $headers .= "Reply-to: \"Disparition | Enquête interactive\"<alexandre.buruk@gmail.com>" . "\r\n";
+                    $headers .= 'Mime-Version: 1.0'."\r\n";
                     $headers .= 'Content-type: text/html; charset=utf-8'."\r\n";
                     $headers .= "\r\n";
                     $message = '<h1>Merci de vous être inscrit à notre newsletter,</h1>
